@@ -21,11 +21,14 @@ def text_loader(folder_path, chunk_size: int=1024, chunk_overlap: int=200):
     nodes : list of node
         분할된 텍스트 단위인 노드들의 리스트
     """
-    documents = SimpleDirectoryReader(input_dir=folder_path, recursive=True).load_data() # 폴더 내의 문서들을 로드
-    # recursive를 True로 함으로써, 하위 파일까지 모두 로드
 
-    parser = SentenceSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap) # 텍스트를 문장 단위로 분할하는 parser 정의
+    # 폴더 내의 문서들을 로드
+    documents = SimpleDirectoryReader(input_dir=folder_path, recursive=True).load_data() # recursive를 True로 함으로써, 하위 파일까지 모두 로드
 
-    nodes = parser.get_nodes_from_documents(documents) # 로드된 문서들을 parser로 분할 -> 단위 : 노드
+    # 텍스트를 문장 단위로 분할하는 parser 정의
+    parser = SentenceSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+
+    # 로드된 문서들을 parser로 분할 -> 단위 : 노드
+    nodes = parser.get_nodes_from_documents(documents)
 
     return nodes
