@@ -2,3 +2,5 @@ gitignore
 .env
 data
 notebooks
+test
+.DS_Store
