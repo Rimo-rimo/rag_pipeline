@@ -13,11 +13,10 @@ class DocumentProcessor():
         - 파일을 텍스트 형태로 추출하여, 라마인덱스의 Document 요소로 변환
 
         Args:
-            document_paths: list
-                - 로드할 문서 경로들의 리스트
+            document_paths (list) : 로드할 문서 경로들의 리스트
+            
         Returns:
-            documents: list
-                - 라마인덱스의 Documents 클래스의 리스트
+            documents (list) : 라마인덱스의 Documents 클래스의 리스트
         """
         try:
             documents = SimpleDirectoryReader(input_files=document_paths).load_data()
@@ -33,11 +32,10 @@ class DocumentProcessor():
         - 로드된 문서를 청킹하여 라마인덱스의 노드 단위로 분할
 
         Args:
-            documents: list
-                - 로드된 document 객체의 리스트
+            documents (list) : 로드된 document 객체의 리스트
 
-        Returns:
-            list: 분할된 노드 객체의 리스트
+        Returns 
+            nodes (list) : 분할된 노드 객체의 리스트
         """
         try:
             nodes = self.parser.get_nodes_from_documents(documents)
