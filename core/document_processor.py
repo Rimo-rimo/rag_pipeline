@@ -10,7 +10,7 @@ class DocumentProcessor():
 
     def load_files(self, document_paths: list):
         """
-        - 문서 주소를 입력 받아 파일을 텍스트 형태로 추출하여, 라마인덱스의 Document 요소로 변환
+        - 파일을 텍스트 형태로 추출하여, 라마인덱스의 Document 요소로 변환
 
         Args:
             document_paths: list
