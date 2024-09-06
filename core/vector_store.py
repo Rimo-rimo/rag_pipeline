@@ -120,5 +120,15 @@ class VectorStore:
         return collection.num_entities
 
     def retrieve(self, query: str, similarity_top_k: int = 50):
+        """
+        Vector Search 진행
+
+        Args:
+            query (str) : 쿼리 문장
+            similarity_top_k (int) : 검색될 최대 node 개수
+
+        Returns:
+            num_entities (int) : entities(nodes)의 개수
+        """
         retriever = self.index.as_retriever(similarity_top_k=similarity_top_k)
         return retriever.retrieve(query)
