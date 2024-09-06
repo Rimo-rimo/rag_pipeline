@@ -8,6 +8,9 @@ from llama_index.vector_stores.milvus import MilvusVectorStore
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.embeddings.openai import OpenAIEmbedding
 
+from pymilvus import Collection, connections
+from urllib.parse import urlparse
+
 logger = logging.getLogger(__name__)
 
 class VectorStore:
@@ -17,7 +20,7 @@ class VectorStore:
         self.vector_store = self._init_vector_store(collection_name)
         self.index = self._init_index()
 
-    def _select_embed_model(embed_model):
+    def _select_embed_model(self, embed_model):
         """
         - 임베딩 모델 선택 및 벡터 차원 설정.
 
@@ -55,7 +58,7 @@ class VectorStore:
                 uri=os.getenv("MILVUS_VECTOR_STORE_URI"),
                 collection_name=collection_name,
                 overwrite=False,
-                dim=self.dim  # 임베딩 모델에 따라 설정된 dim 사용
+                dim=self.embed_dim  # 임베딩 모델에 따라 설정된 dim 사용
             )
             logger.info(f"Milvus Vector Store initialized with collection: {collection_name}")
             return vector_store
@@ -64,12 +67,28 @@ class VectorStore:
             raise
     
     def _init_index(self):
+        """
+        Index 초기화 함수
+
+        Args:
+
+        Returns:
+            라마 인덱스의 VectorStoreIndex 객체
+        """
         index = VectorStoreIndex.from_vector_store(vector_store=self.vector_store,
             embed_model = self.embed_model,
             show_progress=True)
         return index
     
     def insert(self, nodes):
+        """
+        Index에 새로운 nodes 추가
+
+        Args:
+            nodes (list): node 객체의 list
+
+        Returns:
+        """
         try:
             self.index.insert_nodes(nodes, show_progress=True)
             logger.info(f"Insert {len(nodes)} nodes.")
@@ -82,3 +101,20 @@ class VectorStore:
 
     def refresh(self):
         pass
+
+    def num_entities(self):
+        """
+        VectorStore에 저장된 entities(nodes)의 개수 추출
+
+        Args:
+
+        Returns:
+            num_entities (int) : entities(nodes)의 개수
+        """
+        parsed_url = urlparse(os.getenv("MILVUS_VECTOR_STORE_URI"))
+        hostname = parsed_url.hostname 
+        port = parsed_url.port   
+        connections.connect("default", host=hostname, port=port)
+
+        collection = Collection(name="rag_pipeline")
+        return collection.num_entities

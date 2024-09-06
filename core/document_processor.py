@@ -27,7 +27,7 @@ class DocumentProcessor():
             raise
         return documents
 
-    def split_documents(documents):
+    def split_documents(self, documents: list):
         """
         - 로드된 문서를 청킹하여 라마인덱스의 노드 단위로 분할
 
