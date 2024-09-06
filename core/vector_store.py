@@ -116,5 +116,9 @@ class VectorStore:
         port = parsed_url.port   
         connections.connect("default", host=hostname, port=port)
 
-        collection = Collection(name="rag_pipeline")
+        collection = Collection(name=self.collection_name)
         return collection.num_entities
+
+    def retrieve(self, query: str, similarity_top_k: int = 50):
+        retriever = self.index.as_retriever(similarity_top_k=similarity_top_k)
+        return retriever.retrieve(query)
