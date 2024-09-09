@@ -19,7 +19,7 @@ class DocumentProcessor():
             documents (list) : 라마인덱스의 Documents 클래스의 리스트
         """
         try:
-            documents = SimpleDirectoryReader(input_files=document_paths).load_data()
+            documents = SimpleDirectoryReader(input_files=document_paths).load_data(show_progress=True)
             print(f"Loaded {len(documents)} documents.")
             return documents
         except Exception as e:
