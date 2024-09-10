@@ -14,11 +14,13 @@ from urllib.parse import urlparse
 logger = logging.getLogger(__name__)
 
 class VectorStore:
-    def __init__(self, embed_model: str, collection_name:str):
+    def __init__(self, embed_model: str, collection_name: str, milvus_uri: str):
+        self.milvus_uri = milvus_uri
         self.collection_name = collection_name
         self.embed_model, self.embed_dim = self._select_embed_model(embed_model)
         self.vector_store = self._init_vector_store(collection_name)
         self.index = self._init_index()
+        self.collection = self._init_collection()
 
     def _select_embed_model(self, embed_model):
         """
@@ -55,7 +57,7 @@ class VectorStore:
         """
         try:
             vector_store = MilvusVectorStore(
-                uri=os.getenv("MILVUS_VECTOR_STORE_URI"),
+                uri=self.milvus_uri,
                 collection_name=collection_name,
                 overwrite=False,
                 dim=self.embed_dim  # 임베딩 모델에 따라 설정된 dim 사용
@@ -102,6 +104,22 @@ class VectorStore:
     def refresh(self):
         pass
 
+    def _init_collection(self):
+        """
+        Milvus VectorStore의 collection 추출 
+
+        Args:
+
+        Returns:
+            num_entities (int) : entities(nodes)의 개수
+        """
+        parsed_url = urlparse(self.milvus_uri)
+        hostname = parsed_url.hostname 
+        port = parsed_url.port   
+        connections.connect("default", host=hostname, port=port)
+
+        return Collection(name=self.collection_name)
+
     def num_entities(self):
         """
         VectorStore에 저장된 entities(nodes)의 개수 추출
@@ -111,13 +129,7 @@ class VectorStore:
         Returns:
             num_entities (int) : entities(nodes)의 개수
         """
-        parsed_url = urlparse(os.getenv("MILVUS_VECTOR_STORE_URI"))
-        hostname = parsed_url.hostname 
-        port = parsed_url.port   
-        connections.connect("default", host=hostname, port=port)
-
-        collection = Collection(name=self.collection_name)
-        return collection.num_entities
+        return self.collection.num_entities
 
     def retrieve(self, query: str, similarity_top_k: int = 50):
         """
