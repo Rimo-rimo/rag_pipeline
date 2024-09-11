@@ -13,14 +13,14 @@ from urllib.parse import urlparse
 
 logger = logging.getLogger(__name__)
 
-class VectorStore:
+
+
+class IndexStorage:
     def __init__(self, embed_model: str, collection_name: str, milvus_uri: str):
-        self.milvus_uri = milvus_uri
-        self.collection_name = collection_name
         self.embed_model, self.embed_dim = self._select_embed_model(embed_model)
-        self.vector_store = self._init_vector_store(collection_name)
+        self.vector_store = self._init_vector_store(milvus_uri, collection_name)
+        self.collection = self._init_collection(milvus_uri, collection_name)
         self.index = self._init_index()
-        self.collection = self._init_collection()
 
     def _select_embed_model(self, embed_model):
         """
@@ -45,7 +45,7 @@ class VectorStore:
         
         return model, dim
     
-    def _init_vector_store(self, collection_name):
+    def _init_vector_store(self, milvus_uri, collection_name):
         """
         Milvus 벡터 스토어 초기화
 
@@ -57,7 +57,7 @@ class VectorStore:
         """
         try:
             vector_store = MilvusVectorStore(
-                uri=self.milvus_uri,
+                uri=milvus_uri,
                 collection_name=collection_name,
                 overwrite=False,
                 dim=self.embed_dim  # 임베딩 모델에 따라 설정된 dim 사용
@@ -67,6 +67,21 @@ class VectorStore:
         except Exception as e:
             logger.error(f"Failed to initialize Milvus Vector Store: {e}")
             raise
+
+    def _init_collection(self, milvus_uri, collection_name):
+        """
+        Milvus VectorStore의 collection 추출 
+
+        Args:
+
+        Returns:
+            num_entities (int) : entities(nodes)의 개수
+        """
+        parsed_url = urlparse(milvus_uri)
+        hostname = parsed_url.hostname 
+        port = parsed_url.port   
+        connections.connect("default", host=hostname, port=port)
+        return Collection(name=collection_name)
     
     def _init_index(self):
         """
@@ -103,22 +118,6 @@ class VectorStore:
 
     def refresh(self):
         pass
-
-    def _init_collection(self):
-        """
-        Milvus VectorStore의 collection 추출 
-
-        Args:
-
-        Returns:
-            num_entities (int) : entities(nodes)의 개수
-        """
-        parsed_url = urlparse(self.milvus_uri)
-        hostname = parsed_url.hostname 
-        port = parsed_url.port   
-        connections.connect("default", host=hostname, port=port)
-
-        return Collection(name=self.collection_name)
 
     def num_entities(self):
         """
