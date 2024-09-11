@@ -3,6 +3,10 @@
 vector_store:
   collection_name: "rag_pipeline"
 
+preprocessor:
+  chunk_size: 1024
+  chunk_overlap: 200
+
 model:
   embedding_model:
     options:
@@ -13,10 +17,6 @@ model:
     options:
       - "BAAI/bge-reranker-v2-m3"
     default: "BAAI/bge-reranker-v2-m3"
-
-preprocessor:
-  chunk_size: 1024
-  chunk_overlap: 200
 
 retriever:
   vector_search_top_k: 50
