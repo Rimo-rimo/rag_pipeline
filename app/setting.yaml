@@ -1,0 +1,31 @@
+# RAG 시스템에서 사용할 파라미터를 세팅
+
+vector_store:
+  collection_name: "rag_pipeline"
+
+model:
+  embedding_model:
+    options:
+      - "openai"
+      - "bge-m3"
+    default: "bge-m3"
+  rerank_model:
+    options:
+      - "BAAI/bge-reranker-v2-m3"
+    default: "BAAI/bge-reranker-v2-m3"
+
+preprocessor:
+  chunk_size: 1024
+  chunk_overlap: 200
+
+retriever:
+  vector_search_top_k: 50
+  rerank_top_k: 50
+
+# documents가 있는 폴더 경로
+document_directory: "../data"
+
+# 추론 가속화 device
+device: "cuda"
+
+
