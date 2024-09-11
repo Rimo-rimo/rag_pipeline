@@ -3,7 +3,7 @@
 ##############################################
 
 from app.config import settings
-from app.rag_pipeline.index_storage import IndexStorage
+from app.rag_core.index_storage import IndexStorage
 
 # Index 생성을 위한 parameter
 MILVUS_URI = settings.milvus_vector_store_uri
