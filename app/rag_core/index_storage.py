@@ -1,4 +1,5 @@
 import dotenv
+
 import os
 import logging
 dotenv.load_dotenv()
@@ -14,6 +15,7 @@ from urllib.parse import urlparse
 logger = logging.getLogger(__name__)
 
 class IndexStorage:
+
     def __init__(self, embed_model: str, collection_name: str, milvus_uri: str):
         self.embed_model, self.embed_dim = self._select_embed_model(embed_model)
         self.vector_store = self._init_vector_store(milvus_uri, collection_name)
@@ -141,3 +143,8 @@ class IndexStorage:
         """
         retriever = self.index.as_retriever(similarity_top_k=similarity_top_k)
         return retriever.retrieve(query)
+
+    def init(setting):
+
+        pass
+        return IndexStorage()
