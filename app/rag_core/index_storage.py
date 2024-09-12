@@ -143,8 +143,3 @@ class IndexStorage:
         """
         retriever = self.index.as_retriever(similarity_top_k=similarity_top_k)
         return retriever.retrieve(query)
-
-    def init(setting):
-
-        pass
-        return IndexStorage()
