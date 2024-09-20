@@ -54,8 +54,8 @@ class Settings(BaseSettings):
             self.rerank_model_default = yaml_content["model"]["rerank_model"]["default"]
             self.rerank_model_options = yaml_content["model"]["rerank_model"]["options"]
 
-            self.vector_search_top_k = yaml_content["retriever"]["vector_search_top_k"]
-            self.rerank_top_k = yaml_content["retriever"]["rerank_top_k"]
+            self.vector_search_top_k = yaml_content["retrieval"]["vector_search_top_k"]
+            self.rerank_top_k = yaml_content["retrieval"]["rerank_top_k"]
 
             self.document_directory = yaml_content["document_directory"]
             self.device = yaml_content["device"]

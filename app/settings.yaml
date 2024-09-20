@@ -18,7 +18,7 @@ model:
       - "BAAI/bge-reranker-v2-m3"
     default: "BAAI/bge-reranker-v2-m3"
 
-retriever:
+retrieval:
   vector_search_top_k: 50
   rerank_top_k: 50
 
