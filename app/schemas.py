@@ -10,16 +10,28 @@ class RetrieveType(str, Enum):
     HYBRID_SEARCH = "hybrid_search"
 
 class InsertRequest(BaseModel):
+    collection_name: str = Field(
+        description="VectorDB에 주입할 컬렉션 이름",
+        example="rag_pipeline"
+    )
     document_paths: List[str] = Field(
         description="VectorDB에 주입할 문서 경로 리스트",
         example=["document_1.txt", "document_2.pdf", "document_3.hwp"]
+    )
+    chunk_size: int = Field(
+        description="문서를 청킹할 크기",
+        example=1024
+    )
+    chunk_overlap: int = Field(
+        description="문서 청킹 시 겹치는 부분 크기",
+        example=200
     )
 
 class InsertResponse(BaseModel):
     inserted_info: Dict[str, Dict[str, int]] = Field(
         description="VectorDB에 주입된 요소 정보",
-        example={"document_1.txt":{"nodes":773},
-                 "document_2.pdf":{"nodes":483}}
+        example={"document_1.txt":{"nodes_num":773},
+                 "document_2.pdf":{"nodes_num":483}}
     )
 
     collection_num_entities: int = Field(
@@ -28,24 +40,22 @@ class InsertResponse(BaseModel):
     )
 
 class DeleteRequest(BaseModel):
-    pass
+    collection_name: str = Field(
+        description="VectorDB에서 삭제할 컬렉션 이름",
+        example="rag_pipeline"
+    )
+    document_paths: List[str] = Field(
+        description="VectorDB에서 삭제할 문서 경로 리스트",
+        example=["document_1.txt", "document_2.pdf"]
+    )
 
 class DeleteResponse(BaseModel):
-    pass
+    deleted_info: Dict[str, Dict[str, int]] = Field(
+        description="VectorDB에서 삭제된 요소 정보",
+        example={"document_1.txt": {"nodes_num": 773},
+                 "document_2.pdf": {"nodes_num": 483}}
+    )
 
-class RetrieveRequest(BaseModel):
-    query: str = Field(
-        description="사용자의 검색 쿼리",
-        example="rimo가 뭐야?"
-    )
-    retrieve_type: RetrieveType = Field(
-        description="검색 알고리즘 종류",
-        example=RetrieveType.VECTOR_SEARCH
-    )
-    is_rerank: bool = Field(
-        description="리랭킹 단계 적용 여부",
-        example=True
-    )
 class NodeResponse(BaseModel):
     id: str = Field(
         description="node의 id",
@@ -67,6 +77,24 @@ class NodeResponse(BaseModel):
     text: str = Field(
         description="node의 text",
         example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
+    )
+
+class RetrieveRequest(BaseModel):
+    collection_name: str = Field(
+        description="검색 대상 컬렉션 이름",
+        example="rag_pipeline"
+    )
+    query: str = Field(
+        description="사용자의 검색 쿼리",
+        example="rimo가 뭐야?"
+    )
+    retrieve_type: RetrieveType = Field(
+        description="검색 알고리즘 종류",
+        example=RetrieveType.VECTOR_SEARCH
+    )
+    is_rerank: bool = Field(
+        description="리랭킹 단계 적용 여부",
+        example=True
     )
 
 class RetrieveResponse(BaseModel):

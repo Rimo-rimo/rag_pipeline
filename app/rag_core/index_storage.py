@@ -11,39 +11,18 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 
 from pymilvus import Collection, connections
 from urllib.parse import urlparse
+from app.config import settings
 
 logger = logging.getLogger(__name__)
 
 class IndexStorage:
 
-    def __init__(self, embed_model: str, collection_name: str, milvus_uri: str):
-        self.embed_model, self.embed_dim = self._select_embed_model(embed_model)
+    def __init__(self, embed_model, embed_dim: int, collection_name: str, milvus_uri: str):
+        self.embed_model = embed_model
+        self.embed_dim = embed_dim
         self.vector_store = self._init_vector_store(milvus_uri, collection_name)
         self.collection = self._init_collection(milvus_uri, collection_name)
         self.index = self._init_index()
-
-    def _select_embed_model(self, embed_model):
-        """
-        - 임베딩 모델 선택 및 벡터 차원 설정.
-
-        Args:
-            embed_model (str): 사용할 모델 타입 ('bge-m3' 또는 'openai')
-
-        Returns:
-            tuple: 선택한 임베딩 모델 인스턴스와 벡터 차원 값
-        """
-        if embed_model == 'bge-m3':
-            logger.info("Using HuggingFace BGE-M3 model.")
-            model = HuggingFaceEmbedding(model_name="BAAI/bge-m3")
-            dim = 1024  # HuggingFace 모델의 벡터 차원
-        elif embed_model == 'openai':
-            logger.info("Using OpenAI Embedding model.")
-            model = OpenAIEmbedding(model="text-embedding-3-large")
-            dim = 1536  # OpenAI 모델의 벡터 차원
-        else:
-            raise ValueError(f"Unsupported model type: {model_type}")
-        
-        return model, dim
     
     def _init_vector_store(self, milvus_uri, collection_name):
         """
@@ -143,3 +122,19 @@ class IndexStorage:
         """
         retriever = self.index.as_retriever(similarity_top_k=similarity_top_k)
         return retriever.retrieve(query)
+
+def get_index(embed_model, embed_dim, collection_name: str = settings.collection_name, milvus_uri: str = settings.milvus_vector_store_uri):
+    """
+    IndexStorage 객체 반환
+
+    Args:
+
+    Returns:
+        IndexStorage : IndexStorage 객체
+    """
+    return IndexStorage(
+        embed_model=embed_model,
+        embed_dim=embed_dim,
+        collection_name=collection_name,
+        milvus_uri=milvus_uri
+    )

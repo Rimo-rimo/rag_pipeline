@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     fastapi_host: str = os.getenv("FASTAPI_HOST")
     fastapi_port: int = int(os.getenv("FASTAPI_PORT"))
 
-    collection_name: str = ""
+    collection_name: str = "rag_pipeline"
 
     chunk_size: int = 0
     chunk_overlap: int = 0
