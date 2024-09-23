@@ -28,15 +28,13 @@ class InsertRequest(BaseModel):
     )
 
 class InsertResponse(BaseModel):
-    inserted_info: Dict[str, Dict[str, int]] = Field(
-        description="VectorDB에 주입된 요소 정보",
-        example={"document_1.txt":{"nodes_num":773},
-                 "document_2.pdf":{"nodes_num":483}}
+    inserted_nodes_num: int = Field(
+        description="VectorDB에 주입된 노드 수",
+        example=483
     )
-
-    collection_num_entities: int = Field(
-        description="VectorDB 컬렉션에 저장된 entities(nodes) 개수",
-        example=1024
+    collection_row_num: int = Field(
+        description="VectorDB에 주입된 컬렉션의 노드 수",
+        example=798
     )
 
 class DeleteRequest(BaseModel):
@@ -50,11 +48,15 @@ class DeleteRequest(BaseModel):
     )
 
 class DeleteResponse(BaseModel):
-    deleted_info: Dict[str, Dict[str, int]] = Field(
-        description="VectorDB에서 삭제된 요소 정보",
-        example={"document_1.txt": {"nodes_num": 773},
-                 "document_2.pdf": {"nodes_num": 483}}
+    deleted_nodes_num: int = Field(
+        description="VectorDB에서 삭제된 노드 수",
+        example=483
     )
+    collection_row_num: int = Field(
+        description="VectorDB에서 삭제된 컬렉션의 노드 수",
+        example=798
+    )
+
 
 class NodeResponse(BaseModel):
     id: str = Field(

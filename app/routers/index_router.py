@@ -19,17 +19,21 @@ def insert_documents(request: InsertRequest,
         )
 
         inserted_nodes = index_service.insert_documents(request)
-        return {"inserted_nodes": inserted_nodes}
+
+        return InsertResponse(
+            inserted_nodes_num=len(inserted_nodes),
+            collection_row_num=index_service.get_num_entities()    
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.post("/delete_documents")
-def delete_documents(request: DeleteRequest):
-    try:
-        index_service.delete_documents(request)
-        return {"message": "Documents deleted successfully"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+# @router.post("/delete_documents", response_model=DeleteResponse)
+# def delete_documents(request: DeleteRequest):
+#     try:
+#         index_service.delete_documents(request)
+#         return {"message": "Documents deleted successfully"}
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/num_entities")
 def get_num_entities():

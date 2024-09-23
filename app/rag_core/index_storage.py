@@ -90,6 +90,7 @@ class IndexStorage:
             print(f"Insert {len(nodes)} nodes.")
             self.collection.flush()
             print("Done : collection flush")
+            return nodes
         except Exception as e:
             logger.error(f"Failed to insert nodes in Milvus Vector Store: {e}")
             raise
