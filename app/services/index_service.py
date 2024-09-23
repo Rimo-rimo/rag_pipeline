@@ -2,8 +2,8 @@
 # VectorDB와 연결된 Index에 문서(노드)를 삽입, 삭제, 수정 하는 service
 ##########################################################
 
-from app.db import get_index
-from app.schemas import InsertRequest
+from app.rag_core.index_storage import get_index
+from app.schemas import InsertRequest, DeleteRequest
 from app.rag_core.index_storage import IndexStorage
 from app.rag_core.document_processor import DocumentProcessor
 
@@ -35,6 +35,6 @@ class IndexService:
         """
         index 내의 entities(nodes)개수 출력
         """
-        return index.num_entities()
+        return self.index.num_entities()
 
 

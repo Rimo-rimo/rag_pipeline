@@ -87,7 +87,9 @@ class IndexStorage:
         """
         try:
             self.index.insert_nodes(nodes, show_progress=True)
-            logger.info(f"Insert {len(nodes)} nodes.")
+            print(f"Insert {len(nodes)} nodes.")
+            self.collection.flush()
+            print("Done : collection flush")
         except Exception as e:
             logger.error(f"Failed to insert nodes in Milvus Vector Store: {e}")
             raise
