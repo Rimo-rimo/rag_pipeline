@@ -7,6 +7,7 @@ from app.rag_core.index_storage import IndexStorage
 from app.rag_core.reranker import Reranker
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.llms.openai import OpenAI
 
 
 class InstanceManager:
@@ -21,23 +22,12 @@ class InstanceManager:
     def init_resources(self):
         self.embed_model = None
         self.embed_dim = None
-        # self.index = None
         self.reranker = None
+        self.llm = None
 
         self.init_embed_model()
         self.init_reranker()
-
-    # def init_index(self):
-    #     try:
-    #         self.index = IndexStorage(
-    #             milvus_uri=settings.milvus_vector_store_uri, 
-    #             collection_name=settings.collection_name, 
-    #             embed_model=settings.embedding_model_default
-    #         )
-    #         print("IndexStorage successfully initialized.")
-    #     except Exception as e:
-    #         print(f"Failed to initialize IndexStorage: {e}")
-    #         raise
+        self.init_llm()
 
     def init_embed_model(self, embed_model=settings.embedding_model_default):
         if embed_model == 'bge-m3':
@@ -63,14 +53,17 @@ class InstanceManager:
             print(f"Failed to initialize Reranker: {e}")
             raise
     
+    def init_llm(self):
+        self.llm = OpenAI(model="gpt-4o")
+    
     def get_embed_model(self):
         return self.embed_model
-    
-    # def get_index(self):
-    #     return self.index
 
     def get_reranker(self):
         return self.reranker
+    
+    def get_llm(self):
+        return self.llm
 
 def get_instance_manager():
     return InstanceManager()

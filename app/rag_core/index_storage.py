@@ -112,7 +112,7 @@ class IndexStorage:
         """
         return self.collection.num_entities
 
-    def retrieve(self, query: str, similarity_top_k: int = 50):
+    def retrieve(self, query: str, similarity_top_k: int = settings.vector_search_top_k):
         """
         Vector Search 진행
 

@@ -11,7 +11,7 @@ class Reranker:
         Args:
             nodes (list) : 라마인덱스의 NodeWithScore 객체의 리스트
             query (str) : user의 query
-            
+
         Returns:
             postprocessed nodes (list) : reranking된 NodeWithScore 객체의 리스트
         """

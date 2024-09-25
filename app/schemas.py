@@ -3,6 +3,7 @@
 from typing import Union, List, Dict, Any
 from pydantic import BaseModel, Field
 from enum import Enum
+from app.config import settings
 
 class RetrieveType(str, Enum):
     VECTOR_SEARCH = "vector_search"
@@ -16,15 +17,15 @@ class InsertRequest(BaseModel):
     )
     document_paths: List[str] = Field(
         description="VectorDB에 주입할 문서 경로 리스트",
-        example=["document_1.txt", "document_2.pdf", "document_3.hwp"]
+        example=["./data/hyndai_MX5_HEV.pdf", "./data/hyndai.pdf"]
     )
     chunk_size: int = Field(
         description="문서를 청킹할 크기",
-        example=1024
+        example=settings.chunk_size
     )
     chunk_overlap: int = Field(
         description="문서 청킹 시 겹치는 부분 크기",
-        example=200
+        example=settings.chunk_overlap
     )
 
 class InsertResponse(BaseModel):
@@ -81,7 +82,7 @@ class NodeResponse(BaseModel):
         example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
     )
 
-class RetrieveRequest(BaseModel):
+class RetrievalRequest(BaseModel):
     collection_name: str = Field(
         description="검색 대상 컬렉션 이름",
         example="rag_pipeline"
@@ -90,16 +91,13 @@ class RetrieveRequest(BaseModel):
         description="사용자의 검색 쿼리",
         example="rimo가 뭐야?"
     )
-    retrieve_type: RetrieveType = Field(
-        description="검색 알고리즘 종류",
-        example=RetrieveType.VECTOR_SEARCH
-    )
+
     is_rerank: bool = Field(
-        description="리랭킹 단계 적용 여부",
+        description="리랭킹 적용 여부",
         example=True
     )
 
-class RetrieveResponse(BaseModel):
+class RetrievalResponse(BaseModel):
     nodes: List[NodeResponse] = Field(
         description="검색된 node들의 리스트",
         example=[
@@ -133,3 +131,6 @@ class RetrieveResponse(BaseModel):
             }
         ]
     )
+
+class ChatRequest(RetrievalRequest):
+    pass
