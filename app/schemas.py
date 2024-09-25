@@ -111,7 +111,7 @@ class RetrievalResponse(BaseModel):
                     'file_size': 24920366,
                     'creation_date': '2024-09-04',
                     'last_modified_date': '2024-09-04',
-                    'vector_search_score': 0.54
+                    'retrieval_score': 0.54
                 },
                 "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
             },
@@ -125,7 +125,7 @@ class RetrievalResponse(BaseModel):
                     'file_size': 10234567,
                     'creation_date': '2024-09-03',
                     'last_modified_date': '2024-09-03',
-                    'vector_search_score': 0.67
+                    'retrieval_score': 0.67
                 },
                 "text": "코나는 현대자동차의 전기 SUV 모델이다."
             }
@@ -133,4 +133,14 @@ class RetrievalResponse(BaseModel):
     )
 
 class ChatRequest(RetrievalRequest):
-    pass
+    top_n: int = Field(
+        description="검색 결과 중 상위 n개의 결과만 반환",
+        example=10
+    )
+
+class ChatResponse(RetrievalResponse):
+    response: str = Field(
+        description="Chatbot의 응답",
+        example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
+    )
+

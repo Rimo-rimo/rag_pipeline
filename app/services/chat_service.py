@@ -18,17 +18,23 @@ class ChatService():
         self.reranker = reranker
         self.llm = llm
     
-    def query(self, query: str, top_k: int = 10):
+    def query(self, query: str, is_rerank:bool, top_n: int = 10):
         retriever = VectorIndexRetriever(
             index=self.index.index,
-            similarity_top_k=top_k,
+            similarity_top_k=top_n,
         )
         response_synthesizer = get_response_synthesizer()
-        query_engine = RetrieverQueryEngine(
-            retriever=retriever,
-            response_synthesizer=response_synthesizer,
-            node_postprocessors=[self.reranker.reranker],
-        )
+        if is_rerank:
+            query_engine = RetrieverQueryEngine(
+                retriever=retriever,
+                response_synthesizer=response_synthesizer,
+                node_postprocessors=[self.reranker.reranker],
+            )
+        else:
+            query_engine = RetrieverQueryEngine(
+                retriever=retriever,
+                response_synthesizer=response_synthesizer
+            )
 
         return query_engine.query(query)
 
