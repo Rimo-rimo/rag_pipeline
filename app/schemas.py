@@ -41,7 +41,7 @@ class InsertResponse(BaseModel):
 class DeleteRequest(BaseModel):
     collection_name: str = Field(
         description="VectorDB에서 삭제할 컬렉션 이름",
-        example="rag_pipeline"
+        example=settings.collection_name
     )
     document_paths: List[str] = Field(
         description="VectorDB에서 삭제할 문서 경로 리스트",
@@ -84,11 +84,11 @@ class NodeResponse(BaseModel):
 class RetrievalRequest(BaseModel):
     collection_name: str = Field(
         description="검색 대상 컬렉션 이름",
-        example="rag_pipeline"
+        example=settings.collection_name
     )
     query: str = Field(
         description="사용자의 검색 쿼리",
-        example="rimo가 뭐야?"
+        example="차량의 타이어 스펙을 알려줘"
     )
 
     top_n: int = Field(

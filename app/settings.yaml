@@ -1,7 +1,7 @@
 # RAG 시스템에서 사용할 파라미터를 세팅
 
 vector_store:
-  collection_name: "rag_pipeline"
+  collection_name: "santa_openai_origin_1024"
 
 preprocessor:
   chunk_size: 1024
@@ -12,7 +12,8 @@ model:
     options:
       - "openai"
       - "bge-m3"
-    default: "bge-m3"
+    # default: "bge-m3"
+    default: "openai"
   rerank_model:
     options:
       - "BAAI/bge-reranker-v2-m3"

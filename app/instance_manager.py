@@ -36,7 +36,7 @@ class InstanceManager:
             print("HuggingFace BGE-M3 model successfully initialized.")
         elif embed_model == 'openai':
             self.embed_model = OpenAIEmbedding(model="text-embedding-3-large")
-            self.embed_dim = 1536  # OpenAI 모델의 벡터 차원
+            self.embed_dim = 3072  # OpenAI 모델의 벡터 차원
             print("OpenAI Embedding model successfully initialized.")
         else:
             raise ValueError(f"Unsupported model type: {model_type}")
@@ -54,7 +54,7 @@ class InstanceManager:
             raise
     
     def init_llm(self):
-        self.llm = OpenAI(model="gpt-4")
+        self.llm = OpenAI(model="gpt-4o")
     
     def get_embed_model(self):
         return self.embed_model
