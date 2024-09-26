@@ -31,7 +31,7 @@ st.markdown(
 with st.sidebar:
     collection_name = st.selectbox(
         "Collection Name",
-        ("rag_pipeline", "my_car", "hyundai_MX5_bgeM3_512"),
+        ("HeartOn_openai_origin_1024", "santa_openai_origin_1024", "santa_openai_origin_512"),
     )
     top_n = st.slider("top N", 1, 50, 20)
     is_rerank = st.checkbox("Rerank", True)
@@ -53,6 +53,10 @@ with col2:
     if query:
         with st.container(border=True):
             for n, node in enumerate(response["nodes"]):
-                st.markdown(f'**:blue[{node["metadata"]["file_name"]}]** 문서의 ***:blue[{node["metadata"]["page_label"]}]*** page 일부')
+                if node["metadata"]:
+                    st.markdown(f'**:blue[{node["metadata"]["file_name"]}]** 문서의 ***:blue[{node["metadata"]["page_label"]}]*** page 일부')
+                else:
+                    st.markdown(f'**:blue[교육 자료의 링크]** 일부')
                 stx.scrollableTextbox(node["text"], key=f"reason_{n}", height=220)
+                # st.text(node)
                     
