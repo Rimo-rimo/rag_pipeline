@@ -26,11 +26,11 @@ class RetrievalService():
             retrieved nodes (list) : retrieval된 NodeWithScore 객체의 리스트
         """
         # Index에서 검색 수행
-        retrieved_nodes = self.index.retrieve(request.query)
+        retrieved_nodes = self.index.retrieve(query=request.query, similarity_top_k=request.top_n)
 
         # Reranker를 사용하여 검색 결과를 재정렬
-        if request.is_rerank:
-            retrieved_nodes = self.reranker.rerank(retrieved_nodes, request.query)
+        # if request.is_rerank:
+        #     retrieved_nodes = self.reranker.rerank(retrieved_nodes, request.query)
 
         return retrieved_nodes
 

@@ -18,24 +18,27 @@ class ChatService():
         self.reranker = reranker
         self.llm = llm
     
-    def query(self, query: str, is_rerank:bool, top_n: int = 10):
-        retriever = VectorIndexRetriever(
-            index=self.index.index,
-            similarity_top_k=top_n,
-        )
-        response_synthesizer = get_response_synthesizer()
-        if is_rerank:
-            query_engine = RetrieverQueryEngine(
-                retriever=retriever,
-                response_synthesizer=response_synthesizer,
-                node_postprocessors=[self.reranker.reranker],
-            )
-        else:
-            query_engine = RetrieverQueryEngine(
-                retriever=retriever,
-                response_synthesizer=response_synthesizer
-            )
-
-        return query_engine.query(query)
+    def query(self, query: str, top_n: int = 10):
+        # retriever = VectorIndexRetriever(
+        #     index=self.index.index,
+        #     similarity_top_k=top_n,
+        # )
+        # response_synthesizer = get_response_synthesizer()
+        # if is_rerank:
+        #     query_engine = RetrieverQueryEngine.from_args(
+        #         retriever=retriever,
+        #         response_synthesizer=response_synthesizer,
+        #         node_postprocessors=[self.reranker.reranker],
+        #         llm = self.llm
+        #     )
+        # else:
+        #     query_engine = RetrieverQueryEngine(
+        #         retriever=retriever,
+        #         response_synthesizer=response_synthesizer,
+        #         llm = self.llm
+        #     )
+        response = self.index.index.as_query_engine(similarity_top_k=top_n, llm=self.llm).query(query)
+        # query_engine = self.index.index.as_query_engine(retriever=retriever, response_synthesizer=response_synthesizer)
+        return response
 
         

@@ -6,8 +6,8 @@ from app.config import settings
 
 router = APIRouter()
 
-@router.post("/chat", response_model=ChatResponse)
-def retrieve_documents(request: ChatRequest,
+@router.post("/query", response_model=ChatResponse)
+def chat_query(request: ChatRequest,
                        instance_manager: InstanceManager = Depends(get_instance_manager)):
     # try:
     chat_service = ChatService(
@@ -18,8 +18,8 @@ def retrieve_documents(request: ChatRequest,
         collection_name=request.collection_name
     )
 
-    query = request.query + "한국말로 답변해줘"
-    response = chat_service.query(query=query, top_n=request.top_n, is_rerank=request.is_rerank)
+    query = request.query
+    response = chat_service.query(query=query, top_n=request.top_n)
 
     # NodeWithScore 객체를 NodeResponse 객체로 변환
     nodes = []

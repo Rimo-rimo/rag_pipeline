@@ -73,8 +73,7 @@ class NodeResponse(BaseModel):
                  'file_type': 'application/pdf',
                  'file_size': 24920366,
                  'creation_date': '2024-09-04',
-                 'last_modified_date': '2024-09-04',
-                 'vector_search_score': 0.54}
+                 'last_modified_date': '2024-09-04'}
     )
 
     text: str = Field(
@@ -92,10 +91,15 @@ class RetrievalRequest(BaseModel):
         example="rimo가 뭐야?"
     )
 
-    is_rerank: bool = Field(
-        description="리랭킹 적용 여부",
-        example=True
+    top_n: int = Field(
+        description="검색 결과 중 상위 n개의 결과만 반환",
+        example=20
     )
+
+    # is_rerank: bool = Field(
+    #     description="리랭킹 적용 여부",
+    #     example=True
+    # )
 
 class RetrievalResponse(BaseModel):
     nodes: List[NodeResponse] = Field(
@@ -110,8 +114,7 @@ class RetrievalResponse(BaseModel):
                     'file_type': 'application/pdf',
                     'file_size': 24920366,
                     'creation_date': '2024-09-04',
-                    'last_modified_date': '2024-09-04',
-                    'retrieval_score': 0.54
+                    'last_modified_date': '2024-09-04'
                 },
                 "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
             },
@@ -124,8 +127,7 @@ class RetrievalResponse(BaseModel):
                     'file_type': 'application/pdf',
                     'file_size': 10234567,
                     'creation_date': '2024-09-03',
-                    'last_modified_date': '2024-09-03',
-                    'retrieval_score': 0.67
+                    'last_modified_date': '2024-09-03'
                 },
                 "text": "코나는 현대자동차의 전기 SUV 모델이다."
             }
@@ -133,10 +135,7 @@ class RetrievalResponse(BaseModel):
     )
 
 class ChatRequest(RetrievalRequest):
-    top_n: int = Field(
-        description="검색 결과 중 상위 n개의 결과만 반환",
-        example=10
-    )
+    pass
 
 class ChatResponse(RetrievalResponse):
     response: str = Field(

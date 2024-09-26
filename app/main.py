@@ -19,9 +19,9 @@ load_dotenv()
 app = FastAPI()
 
 # 라우터 추가
-app.include_router(index_router.router, prefix="/index", tags=["index"])
-app.include_router(retrieval_router.router, prefix="/retrieval", tags=["retrieval"])
-app.include_router(chat_router.router, prefix="/chat", tags=["chat"])
+app.include_router(index_router.router, prefix="/api/index", tags=["index"])
+app.include_router(retrieval_router.router, prefix="/api/retrieval", tags=["retrieval"])
+app.include_router(chat_router.router, prefix="/api/chat", tags=["chat"])
 
 # 애플리케이션 시작 시 실행할 코드
 @app.on_event("startup")
