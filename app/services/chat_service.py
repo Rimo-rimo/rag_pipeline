@@ -7,6 +7,7 @@ from app.schemas import RetrievalRequest, ChatRequest
 from llama_index.core import VectorStoreIndex, get_response_synthesizer
 from llama_index.core.retrievers import VectorIndexRetriever
 from llama_index.core.query_engine import RetrieverQueryEngine
+from llama_index.core import PromptTemplate
 
 
 class ChatService():
@@ -37,8 +38,38 @@ class ChatService():
         #         response_synthesizer=response_synthesizer,
         #         llm = self.llm
         #     )
-        response = self.index.index.as_query_engine(similarity_top_k=top_n, llm=self.llm).query(query)
-        # query_engine = self.index.index.as_query_engine(retriever=retriever, response_synthesizer=response_synthesizer)
-        return response
+        query_engine = self.index.index.as_query_engine(similarity_top_k=top_n, llm=self.llm)
+
+        new_text_qa_template = (
+            "다음은 컨텍스트 정보입니다.\n"
+            "---------------------\n"
+            "{context_str}\n"
+            "---------------------\n"
+            "컨텍스트 정보만을 참고하여, 기존 지식에 의존하지 않고 질문에 답변해 주세요.\n"
+            "답변은 꼭 한국어로 해줘야 합니다.\n"
+            "질문: {query_str}\n"
+            "답변: "
+        )
+
+        new_refine_templateText = (
+            "기존 질문은 다음과 같습니다: {query_str}\n"
+            "다음은 질문에 대한 기존의 답변입니다: {existing_answer}\n"
+            "아래의 추가 컨텍스트 정보를 바탕으로 기존 답변을 개선할 기회가 있습니다. (필요한 경우에만).\n"
+            "------------\n"
+            "{context_msg}\n"
+            "------------\n"
+            "새로운 컨텍스트를 참고하여, 원래 답변을 질문에 더 잘 맞도록 수정해 주세요. 만약 컨텍스트가 유용하지 않다면, 기존 답변을 반환해 주세요.\n"
+            "답변은 꼭 한국어로 해줘야 합니다.\n"
+            "수정된 답변: "
+        )
+
+        new_text_qa_template = PromptTemplate(new_text_qa_template)
+        new_refine_templateText = PromptTemplate(new_refine_templateText)
+
+        query_engine.update_prompts(
+            {"response_synthesizer:text_qa_template": new_text_qa_template,
+            "response_synthesizer:refine_template": new_refine_templateText}
+        )
+        return query_engine.query(query)
 
         
