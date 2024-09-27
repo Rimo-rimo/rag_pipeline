@@ -19,26 +19,12 @@ class ChatService():
         self.reranker = reranker
         self.llm = llm
     
-    def query(self, query: str, top_n: int = 10):
-        # retriever = VectorIndexRetriever(
-        #     index=self.index.index,
-        #     similarity_top_k=top_n,
-        # )
-        # response_synthesizer = get_response_synthesizer()
-        # if is_rerank:
-        #     query_engine = RetrieverQueryEngine.from_args(
-        #         retriever=retriever,
-        #         response_synthesizer=response_synthesizer,
-        #         node_postprocessors=[self.reranker.reranker],
-        #         llm = self.llm
-        #     )
-        # else:
-        #     query_engine = RetrieverQueryEngine(
-        #         retriever=retriever,
-        #         response_synthesizer=response_synthesizer,
-        #         llm = self.llm
-        #     )
-        query_engine = self.index.index.as_query_engine(similarity_top_k=top_n, llm=self.llm)
+    def query(self, query: str, top_n: int = 10, is_rerank = False):
+        retriever = VectorIndexRetriever(
+            index=self.index.index,
+            similarity_top_k=top_n,
+        )
+        response_synthesizer = get_response_synthesizer(llm = self.llm)
 
         new_text_qa_template = (
             "다음은 컨텍스트 정보입니다.\n"
@@ -47,6 +33,7 @@ class ChatService():
             "---------------------\n"
             "컨텍스트 정보만을 참고하여, 기존 지식에 의존하지 않고 질문에 답변해 주세요.\n"
             "답변은 꼭 한국어로 해줘야 합니다.\n"
+            "답변은 마크다운 형식으로 보기 좋게 생성해 줘야합니다.\n"
             "질문: {query_str}\n"
             "답변: "
         )
@@ -60,16 +47,34 @@ class ChatService():
             "------------\n"
             "새로운 컨텍스트를 참고하여, 원래 답변을 질문에 더 잘 맞도록 수정해 주세요. 만약 컨텍스트가 유용하지 않다면, 기존 답변을 반환해 주세요.\n"
             "답변은 꼭 한국어로 해줘야 합니다.\n"
+            "답변은 마크다운 형식으로 보기 좋게 생성해 줘야합니다.\n"
             "수정된 답변: "
         )
 
         new_text_qa_template = PromptTemplate(new_text_qa_template)
         new_refine_templateText = PromptTemplate(new_refine_templateText)
 
-        query_engine.update_prompts(
-            {"response_synthesizer:text_qa_template": new_text_qa_template,
-            "response_synthesizer:refine_template": new_refine_templateText}
-        )
+        response_synthesizer.update_prompts(
+            {"text_qa_template": new_text_qa_template,
+            "refine_template": new_refine_templateText})
+
+        if is_rerank:
+            query_engine = RetrieverQueryEngine.from_args(
+                retriever=retriever,
+                response_synthesizer=response_synthesizer,
+                node_postprocessors=[self.reranker.reranker]
+            )
+        else:
+            query_engine = RetrieverQueryEngine.from_args(
+                retriever=retriever,
+                response_synthesizer=response_synthesizer
+            )
+        # query_engine = self.index.index.as_query_engine(similarity_top_k=top_n, llm=self.llm)
+
+        # query_engine.update_prompts(
+        #     {"response_synthesizer:text_qa_template": new_text_qa_template,
+        #     "response_synthesizer:refine_template": new_refine_templateText}
+        # )
         return query_engine.query(query)
 
         

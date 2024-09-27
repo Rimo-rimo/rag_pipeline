@@ -19,7 +19,7 @@ def chat_query(request: ChatRequest,
     )
 
     query = request.query
-    response = chat_service.query(query=query, top_n=request.top_n)
+    response = chat_service.query(query=query, top_n=request.top_n, is_rerank=request.is_rerank)
 
     # NodeWithScore 객체를 NodeResponse 객체로 변환
     nodes = []

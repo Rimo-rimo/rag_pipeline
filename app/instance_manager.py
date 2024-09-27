@@ -54,7 +54,8 @@ class InstanceManager:
             raise
     
     def init_llm(self):
-        self.llm = OpenAI(model="gpt-4o")
+        # self.llm = OpenAI(model="gpt-4o")
+        self.llm = OpenAI(model="gpt-4o-mini")
     
     def get_embed_model(self):
         return self.embed_model

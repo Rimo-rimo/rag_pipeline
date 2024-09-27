@@ -96,10 +96,10 @@ class RetrievalRequest(BaseModel):
         example=20
     )
 
-    # is_rerank: bool = Field(
-    #     description="리랭킹 적용 여부",
-    #     example=True
-    # )
+    is_rerank: bool = Field(
+        description="리랭킹 적용 여부",
+        example=True
+    )
 
 class RetrievalResponse(BaseModel):
     nodes: List[NodeResponse] = Field(
