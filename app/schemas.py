@@ -80,6 +80,7 @@ class NodeResponse(BaseModel):
         description="node의 text",
         example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
     )
+    
 
 class RetrievalRequest(BaseModel):
     collection_name: str = Field(
@@ -109,31 +110,19 @@ class RetrievalResponse(BaseModel):
                 "id": "b39b8a58-5591-4579-84c2-ad3c17e8beaa",
                 "metadata": {
                     'page_label': '348',
-                    'file_name': 'hyndai_MX5_HEV.pdf',
-                    'file_path': '/home/livin/rag_pipeline/data/hyndai_MX5_HEV.pdf',
-                    'file_type': 'application/pdf',
-                    'file_size': 24920366,
-                    'creation_date': '2024-09-04',
-                    'last_modified_date': '2024-09-04'
+                    'file_name': 'hyndai_MX5_HEV.pdf'
                 },
                 "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
             },
             {
                 "id": "d29b1a25-32a7-4a13-a14b-12c4b9e1c7fa",
                 "metadata": {
-                    'page_label': '123',
-                    'file_name': 'hyundai_Kona_EV.pdf',
-                    'file_path': '/home/livin/rag_pipeline/data/hyundai_Kona_EV.pdf',
-                    'file_type': 'application/pdf',
-                    'file_size': 10234567,
-                    'creation_date': '2024-09-03',
-                    'last_modified_date': '2024-09-03'
+                    'web_link': '123.html'
                 },
                 "text": "코나는 현대자동차의 전기 SUV 모델이다."
             }
         ]
     )
-
 class ChatRequest(RetrievalRequest):
     pass
 

@@ -2,6 +2,10 @@ import streamlit as st
 import streamlit_scrollable_textbox as stx
 import requests
 
+# streamlit run chat_ui.py --server.port 18502 --server.address 0.0.0.0
+
+st.set_page_config(layout="wide")
+
 def chat_request(query, collection_name, top_n, is_rerank):
     url = "http://localhost:9092/api/chat/query"
     data = { 
@@ -13,7 +17,7 @@ def chat_request(query, collection_name, top_n, is_rerank):
     response = requests.post(url, json=data)
     return response.json()
 
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 
 st.markdown(
     """
@@ -70,7 +74,7 @@ with col1:
             with st.spinner(text="AI가 문서를 살펴보는 중입니다.."):
                 response = chat_request(query=query, collection_name=collection_name, top_n=int(top_n), is_rerank=is_rerank)
                 with st.container(border=True):
-                    st.write(response["response"])
+                    st.markdown(response["response"])
 
 with col2:
     if query:
