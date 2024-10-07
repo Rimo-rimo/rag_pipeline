@@ -25,18 +25,7 @@ def retrieve_documents(request: RetrievalRequest,
         nodes = []
         for nws in retrieved_nodes:
             node = nws.node
-            if "file_name" in node.metadata and "page_label" in node.metadata:
-                metadata = {
-                    "file_name":node.metadata["file_name"],
-                    "page_label":node.metadata["page_label"],
-                    "web_link":None
-                    }
-            else:
-                metadata = {
-                    "file_name":None,
-                    "page_label":None,
-                    "web_link":node.relationships[NodeRelationship.SOURCE].node_id
-                    }
+            metadata = node.metadata
             node_response = NodeResponse(
                 id=node.id_,
                 metadata=metadata,

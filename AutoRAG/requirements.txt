@@ -1,0 +1,61 @@
+numpy<2.0.0 # temporal not using numpy 2.0.0
+pandas>=2.1.0
+tqdm
+tiktoken>=0.7.0  # for counting token
+openai>=1.0.0
+rank_bm25  # for bm25 retrieval
+transformers
+pyyaml  # for yaml file
+pyarrow  # for pandas with parquet
+fastparquet  # for pandas with parquet
+sacrebleu  # for bleu score
+evaluate  # for meteor and other scores
+rouge_score  # for rouge score
+rich  # for pretty logging
+chromadb>=0.5.0 # for vectordb retrieval
+click  # for cli
+Flask # for api server
+torch  # for monot5 reranker
+sentencepiece  # for monot5 reranker
+guidance # for qa data creation
+cohere>=5.8.0 # for cohere services
+tokenlog>=0.0.2 # for token logging
+aiohttp # for async http requests
+bert_score # for bert score
+sentence-transformers # for sentence transformer reranker
+FlagEmbedding # for flag embedding reranker
+ragas # evaluation data generation & evaluation
+llmlingua # for longllmlingua
+peft
+
+### LlamaIndex ###
+llama-index>=0.11.0
+llama-index-core>=0.11.0
+# readers
+llama-index-readers-file
+# Embeddings
+llama-index-embeddings-openai
+llama-index-embeddings-huggingface
+# LLMs
+llama-index-llms-openai>=0.2.7
+llama-index-llms-huggingface
+llama-index-llms-openai-like
+llama-index-llms-ollama
+# Retriever
+llama-index-retrievers-bm25
+
+# WebUI
+streamlit
+gradio
+
+### Langchain ###
+langchain-core>=0.3.0
+langchain-unstructured>=0.1.5
+langchain-upstage
+
+# autorag dashboard
+panel
+seaborn
+ipykernel
+ipywidgets
+ipywidgets_bokeh

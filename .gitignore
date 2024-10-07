@@ -6,3 +6,5 @@ test
 .DS_Store
 .pyc
 images
+AutoRAG/data
+AutoRAG/results

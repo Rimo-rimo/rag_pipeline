@@ -110,13 +110,16 @@ class RetrievalResponse(BaseModel):
                 "id": "b39b8a58-5591-4579-84c2-ad3c17e8beaa",
                 "metadata": {
                     'page_label': '348',
-                    'file_name': 'hyndai_MX5_HEV.pdf'
+                    'file_name': 'hyndai_MX5_HEV.pdf',
+                    'web_link': None
                 },
                 "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
             },
             {
                 "id": "d29b1a25-32a7-4a13-a14b-12c4b9e1c7fa",
                 "metadata": {
+                    'page_label': None,
+                    'file_name' : None,
                     'web_link': '123.html'
                 },
                 "text": "코나는 현대자동차의 전기 SUV 모델이다."
