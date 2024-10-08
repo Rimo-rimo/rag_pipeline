@@ -1,5 +1,13 @@
 import pandas as pd
 import streamlit as st
+from qa_gen import gen_query_answer
+
+# query, answer 재생성
+def generation(corpus):
+    response = gen_query_answer(corpus)
+    query = response['query']
+    answer = response['answer']
+    return query, answer
 
 # Setting
 st.set_page_config(
@@ -8,7 +16,7 @@ st.set_page_config(
     layout="wide")
 
 # Data Path 
-qa_path = './results/qa/hyundai_upstage_qa_all.parquet'
+qa_path = './results/qa/hyundai_upstage_qa_1234.parquet'
 corpus_path = './results/qa/hyundai_upstage_corpus.parquet'
 
 # Data Load
@@ -45,19 +53,29 @@ with qa_col:
     st.markdown("<h5 style=color:#5F5F5F;'>Answer</h5>", unsafe_allow_html=True)
     new_answer = st.text_area("query",answer[0], label_visibility="collapsed", height=300)
 
-    col1, col2, col3 = st.columns([1, 2, 1])
+    col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
     with col1:
         if st.button("이전", use_container_width=True) and st.session_state.idx > 0:
             st.session_state.idx -= 1
             st.rerun()
-    with col3:
+    with col4:
         if st.button("다음", use_container_width=True) and st.session_state.idx < max_idx:
             st.session_state.idx += 1
             st.rerun()
     with col2:
-        if st.button("Save", use_container_width=True, type="primary"):
+        if st.button("Re Generation", use_container_width=True, type="primary"):
+            with st.spinner('재생성 중입니다..'):
+                new_query, new_answer = generation(corpus)
+                qa_df.loc[st.session_state.idx, 'query'] = new_query
+                qa_df.loc[st.session_state.idx, 'generation_gt'] = [new_answer]
+                qa_df.to_parquet(qa_path)
+                st.toast('Generated!', icon='🚀')
+                st.rerun()
+    with col3:
+        if st.button("Save & Next", use_container_width=True, type="primary"):
             qa_df.loc[st.session_state.idx, 'query'] = new_query
             qa_df.loc[st.session_state.idx, 'generation_gt'] = [new_answer]
             qa_df.to_parquet(qa_path)
+            st.session_state.idx += 1
             st.toast('Saved!', icon='🚀')
-    
+            st.rerun()
