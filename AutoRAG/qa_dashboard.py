@@ -53,16 +53,24 @@ with qa_col:
     st.markdown("<h5 style=color:#5F5F5F;'>Answer</h5>", unsafe_allow_html=True)
     new_answer = st.text_area("query",answer[0], label_visibility="collapsed", height=300)
 
-    col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
+    col1, col2, col3, col4, col5 = st.columns([1, 2, 2, 2, 1])
     with col1:
         if st.button("이전", use_container_width=True) and st.session_state.idx > 0:
             st.session_state.idx -= 1
             st.rerun()
-    with col4:
+    with col5:
         if st.button("다음", use_container_width=True) and st.session_state.idx < max_idx:
             st.session_state.idx += 1
             st.rerun()
     with col2:
+        if st.button("삭제", use_container_width=True, type="primary"):
+            qa_df.drop(st.session_state.idx, inplace=True)
+            qa_df.reset_index(drop=True, inplace=True)
+            qa_df.to_parquet(qa_path)
+            st.toast('Deleted!', icon='🚀')
+            st.rerun()
+        
+    with col3:
         if st.button("Re Generation", use_container_width=True, type="primary"):
             with st.spinner('재생성 중입니다..'):
                 new_query, new_answer = generation(corpus)
@@ -71,7 +79,7 @@ with qa_col:
                 qa_df.to_parquet(qa_path)
                 st.toast('Generated!', icon='🚀')
                 st.rerun()
-    with col3:
+    with col4:
         if st.button("Save & Next", use_container_width=True, type="primary"):
             qa_df.loc[st.session_state.idx, 'query'] = new_query
             qa_df.loc[st.session_state.idx, 'generation_gt'] = [new_answer]
