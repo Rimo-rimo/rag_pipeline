@@ -1,0 +1,128 @@
+node_lines:
+# # Query Expansion
+# - node_line_name: pre_retrieve_node_line  
+#   nodes:
+#     - node_type: query_expansion
+#       strategy:
+#         metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
+#         speed_threshold: 10
+#         top_k: 10
+#         retrieval_modules:
+#           - module_type: bm25
+#             bm25_tokenizer: [ko_kiwi, ko_okt, ko_kkma]
+#           - module_type: vectordb
+#             # embedding_model: [openai_embed_3_large, openai_embed_3_small, huggingface_bge_m3]
+#             embedding_model: huggingface_bge_m3
+#           - module_type: hybrid_rrf
+#           - module_type: hybrid_cc
+#             normalize_method: [mm, tmm, z, dbsf]
+#       modules:
+#         - module_type: pass_query_expansion
+#         - module_type: query_decompose
+#           llm: gpt-4o-mini
+#           temperature: [0.2, 0.6, 1.0]
+#         - module_type: hyde
+#           llm: gpt-4o-mini
+#           max_token: 512
+#           temperature: [0.2, 0.6, 1.0]
+#         - module_type: multi_query_expansion
+#           generator_module_type: llama_index_llm
+#           llm: openai
+#           model: gpt-4o-mini
+#           temperature: [0.2, 0.6, 1.0]
+
+
+
+# Retrieval
+- node_line_name: retrieve_node_line
+  nodes:
+    - node_type: retrieval
+      strategy:
+        metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
+      top_k: 10
+      modules:
+        - module_type: bm25
+          bm25_tokenizer: [ko_kiwi, ko_okt, ko_kkma]
+        - module_type: vectordb
+          embedding_model: [openai_embed_3_large, openai_embed_3_small, huggingface_bge_m3]
+        - module_type: hybrid_rrf
+        - module_type: hybrid_cc
+          normalize_method: [mm, tmm, z, dbsf]
+    - node_type: passage_augmenter
+      strategy:
+        metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
+        speed_threshold: 10
+      embedding_model: [openai_embed_3_large, openai_embed_3_small, huggingface_bge_m3]
+      top_k: 10
+      modules:
+        - module_type: pass_passage_augmenter
+        - module_type: prev_next_augmenter
+          num_passages: 1
+          mode: both
+        - module_type: prev_next_augmenter
+          num_passages: 2
+          mode: both
+    - node_type: passage_reranker
+      strategy:
+        metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
+        speed_threshold: 10
+      top_k: 10
+      modules:
+        - module_type: pass_reranker
+        - module_type: koreranker
+        - module_type: rankgpt
+          llm: openai
+          model: gpt-4o-mini
+          temperature: 0.5
+          verbose: False
+          batch: 8
+        - module_type: sentence_transformer_reranker
+          batch: 32
+          model_name: BAAI/bge-reranker-v2-m3
+    - node_type: passage_compressor
+      strategy:
+        metrics: [retrieval_token_f1, retrieval_token_recall, retrieval_token_precision]
+        speed_threshold: 10
+      modules:
+        - module_type: pass_compressor
+        - module_type: tree_summarize
+          llm: openai
+          model: gpt-4o-mini
+        - module_type: refine
+          llm: openai
+          model: gpt-4o-mini
+
+
+
+
+- node_line_name: post_retrieve_node_line
+  nodes:
+    - node_type: prompt_maker
+      strategy:
+        metrics:
+          - metric_name: rouge
+          - metric_name: sem_score
+            embedding_model: huggingface_bge_m3
+#          - metric_name: bert_score
+#            lang: ko
+        generator_modules:
+          - module_type: openai_llm
+            llm: gpt-4o-mini
+      modules:
+        - module_type: fstring
+          prompt:
+          - | 
+            단락을 읽고 질문에 답하세요. \n 질문 : {query} \n 단락: {retrieved_contents} \n 답변 :
+          - |
+            단락을 읽고 질문에 답하세요. 답할때 단계별로 천천히 고심하여 답변하세요. 반드시 단락 내용을 기반으로 말하고 거짓을 말하지 마세요. \n 질문: {query} \n 단락: {retrieved_contents} \n 답변 :
+    - node_type: generator
+      strategy:
+        metrics: # bert_score 및 g_eval 사용 역시 추천합니다. 빠른 실행을 위해 여기서는 제외하고 하겠습니다.
+          - metric_name: rouge
+          - metric_name: sem_score
+            embedding_model: [openai_embed_3_large, openai_embed_3_small, huggingface_bge_m3]
+      modules:
+        - module_type: openai_llm
+          llm: gpt-4o-mini
+          temperature: [0.2, 1.0]
+          batch: 16

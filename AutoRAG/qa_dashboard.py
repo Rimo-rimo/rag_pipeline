@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from qa_gen import gen_query_answer
+from utils.qa_gen import gen_query_answer
 
 # query, answer 재생성
 def generation(corpus):
@@ -69,7 +69,7 @@ with qa_col:
             qa_df.to_parquet(qa_path)
             st.toast('Deleted!', icon='🚀')
             st.rerun()
-        
+         
     with col3:
         if st.button("Re Generation", use_container_width=True, type="primary"):
             with st.spinner('재생성 중입니다..'):
