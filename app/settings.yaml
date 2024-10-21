@@ -12,8 +12,8 @@ model:
     options:
       - "openai"
       - "bge-m3"
+    default: "openai"
     # default: "bge-m3"
-    default: "bge-m3"
   rerank_model:
     options:
       - "BAAI/bge-reranker-v2-m3"

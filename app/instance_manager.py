@@ -30,16 +30,11 @@ class InstanceManager:
         self.init_llm()
 
     def init_embed_model(self, embed_model=settings.embedding_model_default):
-        if embed_model == 'bge-m3':
-            self.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-m3")
-            self.embed_dim = 1024  # HuggingFace 모델의 벡터 차원
-            print("HuggingFace BGE-M3 model successfully initialized.")
-        elif embed_model == 'openai':
-            self.embed_model = OpenAIEmbedding(model="text-embedding-3-large")
-            self.embed_dim = 3072  # OpenAI 모델의 벡터 차원
-            print("OpenAI Embedding model successfully initialized.")
-        else:
-            raise ValueError(f"Unsupported model type: {model_type}")
+        self.bgem3_embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-m3")
+        self.bgem3_embed_dim = 1024  # HuggingFace 모델의 벡터 차원
+
+        self.openai_embed_model = OpenAIEmbedding(model="text-embedding-3-large")
+        self.openai_embed_dim = 3072  # OpenAI 모델의 벡터 차원
 
     def init_reranker(self):
         try:

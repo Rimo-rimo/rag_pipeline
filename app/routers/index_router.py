@@ -11,12 +11,20 @@ router = APIRouter()
 def insert_documents(request: InsertRequest,
                      instance_manager: InstanceManager = Depends(get_instance_manager)):
     try:
-        index_service = IndexService(
-            embed_model=instance_manager.embed_model,
-            embed_dim=instance_manager.embed_dim,
-            collection_name=request.collection_name,
-            milvus_uri=settings.milvus_vector_store_uri
-        )
+        if request.embed_model == "openai":
+            index_service = IndexService(
+                embed_model=instance_manager.openai_embed_model,
+                embed_dim=instance_manager.openai_embed_dim,
+                collection_name=request.collection_name,
+                milvus_uri=settings.milvus_vector_store_uri
+            )
+        elif request.embed_model == "bgem3":
+            index_service = IndexService(
+                embed_model=instance_manager.bgem3_embed_model,
+                embed_dim=instance_manager.bgem3_embed_dim,
+                collection_name=request.collection_name,
+                milvus_uri=settings.milvus_vector_store_uri
+            )
 
         inserted_nodes = index_service.insert_documents(request)
 

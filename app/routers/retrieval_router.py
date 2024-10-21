@@ -11,14 +11,23 @@ router = APIRouter()
 def retrieve_documents(request: RetrievalRequest,
                        instance_manager: InstanceManager = Depends(get_instance_manager)):
     try:
-        retrieval_service = RetrievalService(
-            embed_model=instance_manager.embed_model,
-            reranker=instance_manager.reranker,
-            embed_dim=instance_manager.embed_dim,
-            collection_name=request.collection_name,
-            milvus_uri=settings.milvus_vector_store_uri
-        )
-
+        if request.embed_model == "openai":
+            retrieval_service = RetrievalService(
+                embed_model=instance_manager.openai_embed_model,
+                embed_dim=instance_manager.openai_embed_dim,
+                reranker=instance_manager.reranker,
+                collection_name=request.collection_name,
+                milvus_uri=settings.milvus_vector_store_uri
+            )
+        elif request.embed_model == "bgem3":
+            retrieval_service = RetrievalService(
+                embed_model=instance_manager.bgem3_embed_model,
+                embed_dim=instance_manager.bgem3_embed_dim,
+                reranker=instance_manager.reranker,
+                collection_name=request.collection_name,
+                milvus_uri=settings.milvus_vector_store_uri
+            )
+            
         retrieved_nodes = retrieval_service.retrieve(request)
 
         # NodeWithScore 객체를 NodeResponse 객체로 변환

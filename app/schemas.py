@@ -27,6 +27,12 @@ class InsertRequest(BaseModel):
         description="문서 청킹 시 겹치는 부분 크기",
         example=settings.chunk_overlap
     )
+    embed_model: str = Field(
+        default="openai",
+        description="임베딩 모델('openai' or 'bge-m3')",
+        example="openai"
+    )
+
 
 class InsertResponse(BaseModel):
     inserted_nodes_num: int = Field(
@@ -81,7 +87,6 @@ class NodeResponse(BaseModel):
         example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
     )
     
-
 class RetrievalRequest(BaseModel):
     collection_name: str = Field(
         description="검색 대상 컬렉션 이름",
@@ -100,6 +105,12 @@ class RetrievalRequest(BaseModel):
     is_rerank: bool = Field(
         description="리랭킹 적용 여부",
         example=True
+    )
+
+    embed_model: str = Field(
+        default="openai",
+        description="임베딩 모델('openai' or 'bgem3')",
+        example="openai"
     )
 
 class RetrievalResponse(BaseModel):
@@ -126,8 +137,13 @@ class RetrievalResponse(BaseModel):
             }
         ]
     )
+
 class ChatRequest(RetrievalRequest):
-    pass
+    prompt_template: str = Field(
+        default="basic",
+        description="프롬프트 템플릿",
+        example="basic"
+    )
 
 class ChatResponse(RetrievalResponse):
     response: str = Field(

@@ -10,16 +10,25 @@ router = APIRouter()
 def chat_query(request: ChatRequest,
                        instance_manager: InstanceManager = Depends(get_instance_manager)):
     # try:
-    chat_service = ChatService(
-        embed_model=instance_manager.embed_model,
-        embed_dim=instance_manager.embed_dim,
-        reranker=instance_manager.reranker,
-        llm=instance_manager.llm,
-        collection_name=request.collection_name
-    )
+    if request.embed_model == "openai":
+        chat_service = ChatService(
+            embed_model=instance_manager.openai_embed_model,
+            embed_dim=instance_manager.openai_embed_dim,
+            reranker=instance_manager.reranker,
+            llm=instance_manager.llm,
+            collection_name=request.collection_name
+        )
+    elif request.embed_model == "bgem3":
+        chat_service = ChatService(
+            embed_model=instance_manager.bgem3_embed_model,
+            embed_dim=instance_manager.bgem3_embed_dim,
+            reranker=instance_manager.reranker,
+            llm=instance_manager.llm,
+            collection_name=request.collection_name
+        )
 
     query = request.query
-    response = chat_service.query(query=query, top_n=request.top_n, is_rerank=request.is_rerank)
+    response = chat_service.query(query=query, top_n=request.top_n, is_rerank=request.is_rerank, prompt_template=request.prompt_template)
 
     # NodeWithScore 객체를 NodeResponse 객체로 변환
     nodes = []
