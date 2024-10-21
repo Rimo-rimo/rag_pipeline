@@ -10,7 +10,7 @@ node_lines:
       modules:
         - module_type: bm25
           bm25_tokenizer: [porter_stemmer, ko_kiwi, ko_okt, ko_kkma, gpt2]
-        - module_type: vectordb
+        - module_type: vectordb 
           embedding_model: [openai_embed_3_large, huggingface_bge_m3, huggingface_all_mpnet_base_v2]
         - module_type: hybrid_rrf
         - module_type: hybrid_cc
@@ -21,7 +21,7 @@ node_lines:
     - node_type: passage_reranker
       strategy:
         metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
-        speed_threshold: 14
+        speed_threshold: 14 
       top_k: 14
       modules:
         - module_type: pass_reranker
@@ -45,7 +45,7 @@ node_lines:
       strategy:
         metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
         speed_threshold: 10
-      embedding_model: [openai_embed_3_large, huggingface_bge_m3]
+      embedding_model: huggingface_bge_m3
       top_k: 14
       modules:
         - module_type: pass_passage_augmenter
@@ -77,7 +77,7 @@ node_lines:
         metrics: # bert_score 및 g_eval 사용 역시 추천합니다. 빠른 실행을 위해 여기서는 제외하고 하겠습니다.
           - metric_name: rouge
           - metric_name: sem_score
-            embedding_model: [huggingface_bge_m3]
+            embedding_model: huggingface_bge_m3
       modules:
         - module_type: openai_llm
           llm: gpt-4o-mini

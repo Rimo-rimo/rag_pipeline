@@ -1,0 +1,26 @@
+node_lines:
+# Query Expansion
+- node_line_name: pre_retrieve_node_line  
+  nodes:
+    - node_type: query_expansion
+      strategy:
+        metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
+        speed_threshold: 14
+        top_k: 14
+        retrieval_modules:
+          - module_type: vectordb
+            embedding_model: huggingface_bge_m3
+      modules:
+        - module_type: pass_query_expansion
+        - module_type: query_decompose
+          llm: gpt-4o-mini
+          temperature: [0.6]
+        - module_type: hyde
+          llm: gpt-4o-mini
+          max_token: 512
+          temperature: [0.6]
+        - module_type: multi_query_expansion
+          generator_module_type: llama_index_llm
+          llm: openai
+          model: gpt-4o-mini
+          temperature: [0.6]

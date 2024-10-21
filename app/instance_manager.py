@@ -48,7 +48,7 @@ class InstanceManager:
                 top_n=settings.rerank_top_k, 
                 device=settings.device
             )
-            print("Reranker successfully initialized.")
+            print(f"{settings.rerank_model_default}-Reranker successfully initialized.")
         except Exception as e:
             print(f"Failed to initialize Reranker: {e}")
             raise
