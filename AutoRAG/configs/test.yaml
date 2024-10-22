@@ -1,0 +1,42 @@
+node_lines:
+
+# Retrieval
+- node_line_name: retrieve_node_line
+  nodes:
+    - node_type: retrieval
+      strategy:
+        metrics: [retrieval_f1, retrieval_recall, retrieval_precision, retrieval_ndcg, retrieval_map, retrieval_mrr]
+      top_k: 14
+      modules:
+        - module_type: bm25
+          bm25_tokenizer: ko_okt
+        - module_type: vectordb
+          embedding_model: huggingface_bge_m3
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 2
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 4
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 6
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 8
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 10
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 20
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 40
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 60
+        - module_type: hybrid_rrf
+          target_modules: ('bm25', 'vectordb')
+          rrf_k: 80
+

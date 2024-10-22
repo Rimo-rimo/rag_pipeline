@@ -39,7 +39,9 @@ class IndexStorage:
                 uri=milvus_uri,
                 collection_name=collection_name,
                 overwrite=False,
-                dim=self.embed_dim  # 임베딩 모델에 따라 설정된 dim 사용
+                dim=self.embed_dim,  # 임베딩 모델에 따라 설정된 dim 사용
+                # enable_sparse=True,
+                # sparse_embedding_function = "sdf",
             )
             logger.info(f"Milvus Vector Store initialized with collection: {collection_name}")
             return vector_store
