@@ -61,7 +61,7 @@ st.markdown(
 tab1, tab2, tab3 = st.tabs(["Chat", "Test", "hi"])
 with tab1:
     with st.sidebar:
-        collection_name  = "nursing_html_bgem3"
+        collection_name  = "nursing_html2_bgem"
         # if collection_name == "santa_openai_origin_1024":
         #     st.image("/home/livin/rag_pipeline/images/santa.png")
         # else:
@@ -111,7 +111,7 @@ with tab2:
             prev_button, generation_button, next_button = st.columns([1,3,1])
             if generation_button.button("답변 재 생성", use_container_width=True, type="primary"):
                 with st.spinner("AI가 문제를 푸는 중입니다.."):
-                    response = test_request(query=test_data["문제"][st.session_state.idx], collection_name="nursing_html_bgem3", top_n=14, is_rerank=True)
+                    response = test_request(query=test_data["문제"][st.session_state.idx], collection_name=collection_name, top_n=14, is_rerank=True)
                     result = ast.literal_eval(response["response"])
                     answer = result["answer"]
                     commentary = result["commentary"]
@@ -151,4 +151,5 @@ with tab2:
                 st.write("답변을 재 생성 해 주세요")
 
 with tab3:
-    st.image(pdf_images["14장 호흡기장애 대상자 간호-(1)"][3], use_column_width=True)
+    # st.image(pdf_images["14장 호흡기장애 대상자 간호-(1)"][3], use_column_width=True)
+    st.text("hi")
