@@ -137,6 +137,7 @@ with tab2:
                     else:
                         st.markdown(f'**:blue[교육 자료의 링크]** 일부')
                     with st.container(border=True):
-                        st.components.v1.html(node["text"], height=300, scrolling=True)
+                        # st.components.v1.text(node["text"], height=300, scrolling=True)
+                        st.text_area(node["text"])
             except:
                 st.write("답변을 재 생성 해 주세요")
