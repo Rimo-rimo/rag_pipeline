@@ -3,10 +3,18 @@ import streamlit_scrollable_textbox as stx
 import requests
 import json
 import ast
+from collections import defaultdict
+from pdf2image import convert_from_path
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from PIL import Image
 
 # streamlit run chat_ui.py --server.port 18502 --server.address 0.0.0.0
 
 st.set_page_config(layout="wide")
+
+# pdf_images = defaultdict(list)
+# pdf_images["14장 호흡기장애 대상자 간호-(1)"] = convert_from_path("./AutoRAG/data/nursing/14장 호흡기장애 대상자 간호-(1).pdf", dpi=300)[:5]
 
 if 'idx' not in st.session_state:
     st.session_state.idx = 0
@@ -50,7 +58,7 @@ st.markdown(
     """, unsafe_allow_html=True
 ) 
 
-tab1, tab2 = st.tabs(["Chat", "Test"])
+tab1, tab2, tab3 = st.tabs(["Chat", "Test", "hi"])
 with tab1:
     with st.sidebar:
         collection_name  = "nursing_html_bgem3"
@@ -141,3 +149,6 @@ with tab2:
                         st.text_area(node["text"])
             except:
                 st.write("답변을 재 생성 해 주세요")
+
+with tab3:
+    st.image(pdf_images["14장 호흡기장애 대상자 간호-(1)"][3], use_column_width=True)

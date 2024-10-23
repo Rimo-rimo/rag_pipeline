@@ -86,6 +86,11 @@ class NodeResponse(BaseModel):
         description="node의 text",
         example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
     )
+
+    score: float = Field(
+        description="검색 점수",
+        example=0.67
+    )    
     
 class RetrievalRequest(BaseModel):
     collection_name: str = Field(
@@ -124,7 +129,8 @@ class RetrievalResponse(BaseModel):
                     'file_name': 'hyndai_MX5_HEV.pdf',
                     'web_link': None
                 },
-                "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
+                "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다.",
+                "score":0.67
             },
             {
                 "id": "d29b1a25-32a7-4a13-a14b-12c4b9e1c7fa",
@@ -133,7 +139,8 @@ class RetrievalResponse(BaseModel):
                     'file_name' : None,
                     'web_link': '123.html'
                 },
-                "text": "코나는 현대자동차의 전기 SUV 모델이다."
+                "text": "코나는 현대자동차의 전기 SUV 모델이다.",
+                "score":0.48
             }
         ]
     )

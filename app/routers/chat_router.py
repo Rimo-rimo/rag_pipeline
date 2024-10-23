@@ -37,7 +37,8 @@ def chat_query(request: ChatRequest,
         node_response = NodeResponse(
                 id=node.id_,
                 metadata=node.metadata,
-                text=node.text
+                text=node.text,
+                score=nws.score
             )
         nodes.append(node_response)
 
