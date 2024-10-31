@@ -16,9 +16,6 @@ from bs4 import BeautifulSoup
 
 st.set_page_config(layout="wide")
 
-# pdf_images = defaultdict(list)
-# pdf_images["14장 호흡기장애 대상자 간호-(1)"] = convert_from_path("./AutoRAG/data/nursing/14장 호흡기장애 대상자 간호-(1).pdf", dpi=300)[:5]
-
 if 'idx' not in st.session_state:
     st.session_state.idx = 0
 
@@ -66,17 +63,18 @@ def draw_bounding_box(file_name, page_dict):
     for page_ in page_dict: 
         image = Image.open(f"./AutoRAG/data/nursing/nursing_images/{file_name}/{page_-1}.png")
         w, h = image.size
-        draw = ImageDraw.Draw(image)
+        draw = ImageDraw.Draw(image, "RGBA")  # RGBA 모드로 변경하여 반투명 지원
         for bbox in page_dict[page_]:
             x1 = bbox[0]["x"]*w
             y1 = bbox[0]["y"]*h
             x2 = bbox[1]["x"]*w
             y2 = bbox[2]["y"]*h
-            draw.rectangle([x1, y1, x2, y2], outline=(255,0,0), width=2)
-        # image.save(f"./{file_name}_{page_-1}.png")
-        # print(f"SAVE - {file_name}_{page_-1}.png")
+            draw.rounded_rectangle([x1, y1, x2, y2], outline=(255, 0, 0, 90), fill=(255, 0, 0, 80), width=2, radius=10)
         result.append(image)
     return result
+
+def session_idx_re():
+    st.session_state.idx = 0
 
 st.markdown(
     """
@@ -92,21 +90,21 @@ st.markdown(
     """, unsafe_allow_html=True
 ) 
 
+with st.sidebar:
+    test_type = st.selectbox("시험 문제", ["중간_내분비계", "기말_호흡기계"], on_change=session_idx_re)
+    if test_type == "중간_내분비계":
+        test_path = "/home/livin/rag_pipeline/data/nursing_test_1.json"
+    else:
+        test_path = "/home/livin/rag_pipeline/data/nursing_test_2.json"
+
+    collection_name  = "nursing_html2_bgem3"
+    top_n = 16
+    is_rerank = True
+
 tab1, tab2 = st.tabs(["Chat", "Test"])
 with tab1:
-    with st.sidebar:
-        collection_name  = "nursing_html2_bgem3"
-        # if collection_name == "santa_openai_origin_1024":
-        #     st.image("/home/livin/rag_pipeline/images/santa.png")
-        # else:
-        #     st.image("/home/livin/rag_pipeline/images/heart.png")
 
-        top_n = st.slider("top N", 1, 50, 14)
-
-        # is_rerank = st.checkbox("Rerank", True)
-        is_rerank = True
-
-    col1, col2 = st.columns([6,4])
+    col1, col2 = st.columns([5,5])
 
     with col1:
         st.markdown("<h1 style='text-align: center;'>Nursing ChatBot</h1>", unsafe_allow_html=True)
@@ -131,29 +129,40 @@ with tab1:
     with col2:
         if query:
             st.markdown("<h1 style='text-align: center;'>참고 자료</h1>", unsafe_allow_html=True)
-            with st.container(border=True):
-                for n, node in enumerate(response["nodes"]):
-                    if "file_name" in node["metadata"].keys():
-                        title = node["metadata"]["file_name"].split(".")[0]
-                        st.markdown(f'**:blue[{title}]** 문서 일부')
-                    else:
-                        st.markdown(f'**:blue[교육 자료의 링크]** 일부')
-                    with st.container(border=True):
-                        st.components.v1.html(node["text"], height=300, scrolling=True)
-                        tag_ids = extract_tag_id(node["text"])
-                        with open(f"./AutoRAG/data/nursing/nursing_json/{title}.json", "r") as f:
-                            json_data = json.load(f)
-                        page_dict = defaultdict(list)
-                        for tag_id in tag_ids:
-                            element = json_data["elements"][int(tag_id)]
-                            page_dict[element["page"]].append(element["bounding_box"])
-                        pdf_images = draw_bounding_box(title, page_dict)
-                        for pdf_image in pdf_images:
-                            st.image(pdf_image, use_column_width=True)
+            text_tab, pdf_tab = st.tabs(["Text", "PDF"])
+            with text_tab:
+                with st.container(border=True):
+                    for n, node in enumerate(response["nodes"]):
+                        if "file_name" in node["metadata"].keys():
+                            title = node["metadata"]["file_name"].split(".")[0]
+                            st.markdown(f'**:blue[{title}]** 문서 일부')
+                        else:
+                            st.markdown(f'**:blue[교육 자료의 링크]** 일부')
+                        with st.container(border=True):
+                            st.components.v1.html(node["text"], height=300, scrolling=True)
+            with pdf_tab:
+                with st.container(border=True):
+                    for n, node in enumerate(response["nodes"]):
+                        if "file_name" in node["metadata"].keys():
+                            title = node["metadata"]["file_name"].split(".")[0]
+                            st.markdown(f'**:blue[{title}]** 문서 일부')
+                        else:
+                            st.markdown(f'**:blue[교육 자료의 링크]** 일부')
+                        with st.container(border=True):
+                            tag_ids = extract_tag_id(node["text"])
+                            with open(f"./AutoRAG/data/nursing/nursing_json/{title}.json", "r") as f:
+                                json_data = json.load(f)
+                            page_dict = defaultdict(list)
+                            for tag_id in tag_ids:
+                                element = json_data["elements"][int(tag_id)]
+                                page_dict[element["page"]].append(element["bounding_box"])
+                            pdf_images = draw_bounding_box(title, page_dict)
+                            for pdf_image in pdf_images:
+                                st.image(pdf_image, use_column_width=True)
 
 
 with tab2:
-    with open("/home/livin/rag_pipeline/data/nursing_test_1.json", "r") as f:
+    with open(test_path, "r") as f:
         test_data = json.load(f)
     
     test_col, reference_col = st.columns([1,1])
@@ -173,7 +182,7 @@ with tab2:
                     test_data["해설"][st.session_state.idx] = commentary
                     test_data["참고자료"][st.session_state.idx] = response["nodes"]
                     # json 파일 저장하기
-                    with open("/home/livin/rag_pipeline/data/nursing_test_1.json", "w") as f:
+                    with open(test_path, "w") as f:
                         json.dump(test_data, f, ensure_ascii=False, indent="\t")
                     st.rerun()
             if prev_button.button("이전", use_container_width=True) and st.session_state.idx > 0:
@@ -189,17 +198,32 @@ with tab2:
             st.markdown(test_data["해설"][st.session_state.idx], unsafe_allow_html=True)
 
     with reference_col:
-        # with st.container(border=True):
         st.markdown("<h3 style='text-align: center;'>참고 자료</h3>", unsafe_allow_html=True)
-        with st.container(border=True):
-            # try:
-            for n, node in enumerate(test_data["참고자료"][st.session_state.idx]):
-                if "file_name" in node["metadata"].keys():
-                    st.markdown(f'**:blue[{node["metadata"]["file_name"].split(".")[0]}]** 문서 일부')
-                else:
-                    st.markdown(f'**:blue[교육 자료의 링크]** 일부')
-                with st.container(border=True):
-                    # st.components.v1.html(node["text"], height=300, scrolling=True)
-                    st.text_area(node["text"])
-            # except:
-            #     st.write("답변을 재 생성 해 주세요")
+        text_tab, pdf_tab = st.tabs(["Text", "PDF"])
+        with text_tab:
+            with st.container(border=True):
+                try:
+                    for n, node in enumerate(test_data["참고자료"][st.session_state.idx]):
+                        if "file_name" in node["metadata"].keys():
+                            st.markdown(f'**:blue[{node["metadata"]["file_name"].split(".")[0]}]** 문서 일부') 
+                        with st.container(border=True):
+                            st.components.v1.html(node["text"], height=300, scrolling=True)
+                except:
+                    st.write("답변을 재 생성 해 주세요")
+        with pdf_tab:
+            with st.container(border=True):
+                for n, node in enumerate(test_data["참고자료"][st.session_state.idx]):
+                    if "file_name" in node["metadata"].keys():
+                        title = node["metadata"]["file_name"].split(".")[0]
+                        st.markdown(f'**:blue[{node["metadata"]["file_name"].split(".")[0]}]** 문서 일부')
+                    with st.container(border=True):
+                        tag_ids = extract_tag_id(node["text"])
+                        with open(f"./AutoRAG/data/nursing/nursing_json/{title}.json", "r") as f:
+                            json_data = json.load(f)
+                        page_dict = defaultdict(list)
+                        for tag_id in tag_ids:
+                            element = json_data["elements"][int(tag_id)]
+                            page_dict[element["page"]].append(element["bounding_box"])
+                        pdf_images = draw_bounding_box(title, page_dict)
+                        for pdf_image in pdf_images:
+                            st.image(pdf_image, use_column_width=True)
