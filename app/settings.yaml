@@ -18,8 +18,8 @@ model:
     options:
       - "BAAI/bge-reranker-v2-m3"
       - "Dongjin-kr/ko-reranker"
-    # default: "BAAI/bge-reranker-v2-m3"
-    default: "Dongjin-kr/ko-reranker"
+    default: "BAAI/bge-reranker-v2-m3"
+    # default: "Dongjin-kr/ko-reranker"
 
 retrieval:
   vector_search_top_k: 50

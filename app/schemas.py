@@ -4,34 +4,58 @@ from typing import Union, List, Dict, Any
 from pydantic import BaseModel, Field
 from enum import Enum
 from app.config import settings
+from typing_extensions import Annotated
 
 class RetrieveType(str, Enum):
     VECTOR_SEARCH = "vector_search"
     BM25_SEARCH = "bm25_search"
     HYBRID_SEARCH = "hybrid_search"
 
+# class InsertRequest(BaseModel):
+#     collection_name: str = Field(
+#         description="VectorDB에 주입할 컬렉션 이름",
+#         example="rag_pipeline"
+#     )
+#     document_paths: List[str] = Field(
+#         description="VectorDB에 주입할 문서 경로 리스트",
+#         example=["./data/hyndai_MX5_HEV.pdf", "./data/hyndai.pdf"]
+#     )
+#     chunk_size: int = Field(
+#         description="문서를 청킹할 크기",
+#         example=settings.chunk_size
+#     )
+#     chunk_overlap: int = Field(
+#         description="문서 청킹 시 겹치는 부분 크기",
+#         example=settings.chunk_overlap
+#     )
+#     embed_model: str = Field(
+#         default="bgem3",
+#         description="임베딩 모델('openai' or 'bge-m3')",
+#         example="bgem3"
+#     )
+
 class InsertRequest(BaseModel):
-    collection_name: str = Field(
+    collection_name: Annotated[str, Field(
         description="VectorDB에 주입할 컬렉션 이름",
-        example="rag_pipeline"
-    )
-    document_paths: List[str] = Field(
+        example="example_collection"
+    )]
+    document_paths: Annotated[List[str], Field(
         description="VectorDB에 주입할 문서 경로 리스트",
         example=["./data/hyndai_MX5_HEV.pdf", "./data/hyndai.pdf"]
-    )
-    chunk_size: int = Field(
+    )]
+    chunk_size: Annotated[int, Field(
         description="문서를 청킹할 크기",
-        example=settings.chunk_size
-    )
-    chunk_overlap: int = Field(
+        example=1024  # 실제 값으로 대체하세요
+    )]
+    chunk_overlap: Annotated[int, Field(
         description="문서 청킹 시 겹치는 부분 크기",
-        example=settings.chunk_overlap
-    )
-    embed_model: str = Field(
+        example=200  # 실제 값으로 대체하세요
+    )]
+    embed_model: Annotated[str, Field(
         default="openai",
         description="임베딩 모델('openai' or 'bge-m3')",
         example="openai"
-    )
+    )]
 
 
 class InsertResponse(BaseModel):
