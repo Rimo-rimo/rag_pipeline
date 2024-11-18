@@ -1,6 +1,6 @@
 # Pydantic 모델 (요청 및 응답 스키마 정의)
 
-from typing import Union, List, Dict, Any
+from typing import Union, List, Dict, Any, Optional
 from pydantic import BaseModel, Field
 from enum import Enum
 from app.config import settings
@@ -141,6 +141,10 @@ class RetrievalRequest(BaseModel):
         description="임베딩 모델('openai' or 'bgem3')",
         example="openai"
     )
+
+    minimum_score: Optional[float] = Field(default=0.0, description="최소 유사도 점수")
+    
+    
 
 class RetrievalResponse(BaseModel):
     nodes: List[NodeResponse] = Field(

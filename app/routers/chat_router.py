@@ -33,6 +33,10 @@ def chat_query(request: ChatRequest,
     # NodeWithScore 객체를 NodeResponse 객체로 변환
     nodes = []
     for nws in response.source_nodes:
+        # minimum_score보다 낮은 score를 가진 노드는 건너뜀
+        if hasattr(request, 'minimum_score') and nws.score < request.minimum_score:
+            continue
+            
         node = nws.node
         node_response = NodeResponse(
                 id=node.id_,

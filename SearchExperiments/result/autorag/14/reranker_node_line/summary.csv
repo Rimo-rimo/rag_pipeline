@@ -1,0 +1,2 @@
+node_type,best_module_filename,best_module_name,best_module_params,best_execution_time
+passage_reranker,2.parquet,SentenceTransformerReranker,"{'top_k': 10, 'batch': 8, 'model_name': 'BAAI/bge-reranker-v2-m3'}",0.4806612625456692

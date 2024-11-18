@@ -16,8 +16,10 @@ st.set_page_config(
     layout="wide")
 
 # Data Path 
-qa_path = './results/qa/nursing/nursing_qa.parquet'
-corpus_path = './results/qa/nursing/corpus.parquet'
+# qa_path = './results/qa/nursing/nursing_qa.parquet'
+qa_path = "./results/qa/hyundai_upstage_qa_1234.parquet"
+# corpus_path = './results/qa/nursing/corpus.parquet'
+corpus_path = "./results/qa/hyundai_upstage_corpus.parquet"
 
 # Data Load
 qa_df = pd.read_parquet(qa_path)

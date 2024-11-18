@@ -1,0 +1,5 @@
+filename,module_name,module_params,execution_time,passage_reranker_retrieval_f1,passage_reranker_retrieval_recall,passage_reranker_retrieval_precision,passage_reranker_retrieval_ndcg,passage_reranker_retrieval_map,passage_reranker_retrieval_mrr,is_best
+0.parquet,PassReranker,{'top_k': 10},3.198364324737013e-05,0.1802232854864434,0.9912280701754386,0.09912280701754386,0.9247528787791248,0.9021929824561403,0.9021929824561403,False
+1.parquet,KoReranker,"{'top_k': 10, 'batch': 16}",0.2880482610903288,0.1802232854864434,0.9912280701754386,0.09912280701754386,0.9279571259476558,0.9073934837092731,0.9073934837092731,False
+2.parquet,SentenceTransformerReranker,"{'top_k': 10, 'batch': 16, 'model_name': 'BAAI/bge-reranker-v2-m3'}",0.5353085848323086,0.1802232854864434,0.9912280701754386,0.09912280701754386,0.9603343384793427,0.9495614035087719,0.9495614035087719,True
+3.parquet,SentenceTransformerReranker,"{'top_k': 10, 'batch': 16, 'model_name': 'BAAI/bge-reranker-large'}",0.32300537720061184,0.1802232854864434,0.9912280701754386,0.09912280701754386,0.909053919358268,0.8812865497076023,0.8812865497076023,False

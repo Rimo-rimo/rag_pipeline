@@ -25,7 +25,7 @@ app.include_router(chat_router.router, prefix="/api/chat", tags=["chat"])
 
 # 애플리케이션 시작 시 실행할 코드
 @app.on_event("startup")
-def startup_event():
+def startup_event(): 
     get_instance_manager()
     print("Load Instance Manager")
     

@@ -1,0 +1,3 @@
+node_line_name,node_type,best_module_filename,best_module_name,best_module_params,best_execution_time
+retrieve_node_line,retrieval,7.parquet,HybridCC,"{'top_k': 10, 'normalize_method': 'z', 'weight': 0.29, 'target_modules': ('VectorDB', 'BM25'), 'target_module_params': ({'top_k': 10, 'embedding_model': 'huggingface_bge_m3', 'embedding_batch': 64}, {'top_k': 10, 'bm25_tokenizer': 'ko_okt'})}",0.0283142955679642
+reranker_node_line,passage_reranker,2.parquet,SentenceTransformerReranker,"{'top_k': 10, 'batch': 16, 'model_name': 'BAAI/bge-reranker-v2-m3'}",0.5353085848323086

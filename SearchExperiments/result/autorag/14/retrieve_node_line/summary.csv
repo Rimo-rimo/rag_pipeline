@@ -1,0 +1,2 @@
+node_type,best_module_filename,best_module_name,best_module_params,best_execution_time
+retrieval,8.parquet,HybridCC,"{'top_k': 10, 'embedding_batch': 8, 'normalize_method': 'z', 'weight': 0.29, 'target_modules': ('VectorDB', 'BM25'), 'target_module_params': ({'top_k': 10, 'embedding_batch': 8, 'embedding_model': 'huggingface_bge_m3'}, {'top_k': 10, 'embedding_batch': 8, 'bm25_tokenizer': 'ko_okt'})}",0.0230021058467396
