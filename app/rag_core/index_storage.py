@@ -70,7 +70,7 @@ class IndexStorage:
 
         Args:
 
-        Returns:
+        Returns: 
             라마 인덱스의 VectorStoreIndex 객체
         """
         index = VectorStoreIndex.from_vector_store(vector_store=self.vector_store,

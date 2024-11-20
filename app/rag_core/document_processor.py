@@ -20,6 +20,8 @@ class DocumentProcessor():
         """
         try:
             documents = SimpleDirectoryReader(input_files=document_paths).load_data(show_progress=True)
+            for document in documents:
+                document.excluded_embed_metadata_keys = ["file_type", "file_size", "creation_date", "last_modified_date", "last_accessed_date"]
             print(f"Loaded {len(documents)} documents.")
             return documents
         except Exception as e:
