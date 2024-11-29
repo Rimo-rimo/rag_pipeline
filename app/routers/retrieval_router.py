@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.services.retrieval_service import RetrievalService
-from app.schemas import RetrievalRequest, RetrievalResponse, NodeResponse
+from app.schemas import RetrievalRequest, RetrievalResponse, NodeResponse, NodeMetadata
 from app.instance_manager import get_instance_manager, InstanceManager
 from app.config import settings
 from llama_index.core.schema import NodeRelationship  
@@ -38,7 +38,15 @@ def retrieve_documents(request: RetrievalRequest,
                 continue
                 
             node = nws.node
-            metadata = node.metadata
+            metadata = NodeMetadata(
+                page_label=node.metadata.get("page_label"),
+                file_name=node.metadata.get("file_name"),
+                file_path=node.metadata.get("file_path"),
+                file_type=node.metadata.get("file_type"),
+                file_size=node.metadata.get("file_size"),
+                creation_date=node.metadata.get("creation_date"),
+                last_modified_date=node.metadata.get("last_modified_date")
+            )
             node_response = NodeResponse(
                 id=node.id_,
                 metadata=metadata,    

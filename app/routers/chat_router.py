@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.services.chat_service import ChatService
-from app.schemas import ChatRequest, ChatResponse, NodeResponse
+from app.schemas import ChatRequest, ChatResponse, NodeResponse, NodeMetadata
 from app.instance_manager import get_instance_manager, InstanceManager
 from app.config import settings
 
@@ -38,11 +38,21 @@ def chat_query(request: ChatRequest,
             continue
             
         node = nws.node
+        metadata = NodeMetadata(
+            page_label=node.metadata.get("page_label"),
+            file_name=node.metadata.get("file_name"),
+            file_path=node.metadata.get("file_path"),
+            file_type=node.metadata.get("file_type"),
+            file_size=node.metadata.get("file_size"),
+            creation_date=node.metadata.get("creation_date"),
+            last_modified_date=node.metadata.get("last_modified_date")
+        )
         node_response = NodeResponse(
                 id=node.id_,
-                metadata=node.metadata,
+                metadata=metadata,
                 text=node.text,
-                score=nws.score
+                score=nws.score,
+                # file_path=node.metadata["file_path"]
             )
         nodes.append(node_response)
 
@@ -52,3 +62,4 @@ def chat_query(request: ChatRequest,
     )
     # except Exception as e:
     #     raise HTTPException(status_code=500, detail=str(e))
+

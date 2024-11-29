@@ -12,14 +12,14 @@ model:
     options:
       - "openai"
       - "bge-m3"
-    default: "openai"
-    # default: "bge-m3"
+    default: "bge-m3"
+
   rerank_model:
     options:
       - "BAAI/bge-reranker-v2-m3"
       - "Dongjin-kr/ko-reranker"
-    # default: "BAAI/bge-reranker-v2-m3"
-    default: "Dongjin-kr/ko-reranker"
+    default: "BAAI/bge-reranker-v2-m3"
+    # default: "Dongjin-kr/ko-reranker"
 
 retrieval:
   vector_search_top_k: 50
@@ -27,6 +27,9 @@ retrieval:
 
 # documents가 있는 폴더 경로
 document_directory: "../data"
+
+# summary가 있는 폴더 경로
+summarized_document_path: "/home/livin/rag_pipeline/data/sharedoc_text/summarized_text"
 
 # 추론 가속화 device
 device: "cuda"

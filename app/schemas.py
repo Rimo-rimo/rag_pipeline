@@ -88,29 +88,55 @@ class DeleteResponse(BaseModel):
         example=798
     )
 
+class NodeMetadata(BaseModel):
+    page_label: Optional[str] = Field(
+        default=None,
+        description="문서의 페이지 번호",
+        example="540"
+    )
+    file_name: Optional[str] = Field(
+        default=None,
+        description="파일 이름",
+        example="test.pdf"
+    )
+    file_path: Optional[str] = Field(
+        default=None,
+        description="파일 경로",
+        example="/data/sub/test.pdf"
+    )
+    file_type: Optional[str] = Field(
+        default=None,
+        description="파일 타입",
+        example="application/pdf"
+    )
+    file_size: Optional[int] = Field(
+        default=None,
+        description="파일 크기(bytes)",
+        example=24920366
+    )
+    creation_date: Optional[str] = Field(
+        default=None,
+        description="파일 생성일",
+        example="2024-09-04"
+    )
+    last_modified_date: Optional[str] = Field(
+        default=None,
+        description="파일 수정일",
+        example="2024-09-04"
+    )
 
 class NodeResponse(BaseModel):
     id: str = Field(
         description="node의 id",
         example="b39b8a58-5591-4579-84c2-ad3c17e8beaa"
     )
-
-    metadata: Dict[str, Any] = Field(
-        description="node가 가진 metadata",
-        example={'page_label': '348',
-                 'file_name': 'hyndai_MX5_HEV.pdf',
-                 'file_path': '/home/livin/rag_pipeline/data/hyndai_MX5_HEV.pdf',
-                 'file_type': 'application/pdf',
-                 'file_size': 24920366,
-                 'creation_date': '2024-09-04',
-                 'last_modified_date': '2024-09-04'}
+    metadata: NodeMetadata = Field(
+        description="node가 가진 metadata"
     )
-
     text: str = Field(
         description="node의 text",
         example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
     )
-
     score: float = Field(
         description="검색 점수",
         example=0.67
@@ -144,33 +170,11 @@ class RetrievalRequest(BaseModel):
 
     minimum_score: Optional[float] = Field(default=0.0, description="최소 유사도 점수")
     
-    
+
 
 class RetrievalResponse(BaseModel):
     nodes: List[NodeResponse] = Field(
-        description="검색된 node들의 리스트",
-        example=[
-            {
-                "id": "b39b8a58-5591-4579-84c2-ad3c17e8beaa",
-                "metadata": {
-                    'page_label': '348',
-                    'file_name': 'hyndai_MX5_HEV.pdf',
-                    'web_link': None
-                },
-                "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다.",
-                "score":0.67
-            },
-            {
-                "id": "d29b1a25-32a7-4a13-a14b-12c4b9e1c7fa",
-                "metadata": {
-                    'page_label': None,
-                    'file_name' : None,
-                    'web_link': '123.html'
-                },
-                "text": "코나는 현대자동차의 전기 SUV 모델이다.",
-                "score":0.48
-            }
-        ]
+        description="검색된 node들의 리스트"
     )
 
 class ChatRequest(RetrievalRequest):
@@ -184,5 +188,21 @@ class ChatResponse(RetrievalResponse):
     response: str = Field(
         description="Chatbot의 응답",
         example="rimo는 marimo라는 해양 생물로 부터 따온 이름이다."
+    )
+
+class DocumentSummaryRequest(BaseModel):
+    file_path: str = Field(
+        description="file_path",
+        example="/data/subfolder/test.pdf"
+    )
+
+class DocumentSummaryResponse(BaseModel):
+    file_path: str = Field(
+        description="file_path",
+        example="/data/subfolder/test.pdf"
+    )
+    summary: str = Field(
+        description="document의 요약본",
+        example="document의 요약본"
     )
 

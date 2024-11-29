@@ -8,7 +8,7 @@ import os
 import uvicorn
 from fastapi import FastAPI
 
-from app.routers import index_router, retrieval_router, chat_router
+from app.routers import document_router, index_router, retrieval_router, chat_router
 from app.config import settings
 from app.instance_manager import get_instance_manager
 
@@ -22,6 +22,7 @@ app = FastAPI()
 app.include_router(index_router.router, prefix="/api/index", tags=["index"])
 app.include_router(retrieval_router.router, prefix="/api/retrieval", tags=["retrieval"])
 app.include_router(chat_router.router, prefix="/api/chat", tags=["chat"])
+app.include_router(document_router.router, prefix="/api/document", tags=["document"])
 
 # 애플리케이션 시작 시 실행할 코드
 @app.on_event("startup")

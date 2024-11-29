@@ -21,6 +21,11 @@ class Settings(BaseSettings):
     milvus_vector_store_uri: str = os.getenv("MILVUS_VECTOR_STORE_URI")
     fastapi_host: str = os.getenv("FASTAPI_HOST")
     fastapi_port: int = int(os.getenv("FASTAPI_PORT"))
+    
+    mysql_host: str = os.getenv("MYSQL_HOST")
+    mysql_user: str = os.getenv("MYSQL_USER")
+    mysql_password: str = os.getenv("MYSQL_PASSWORD")
+    mysql_database: str = os.getenv("MYSQL_DATABASE")
 
     collection_name: str = "rag_pipeline"
 
@@ -38,6 +43,8 @@ class Settings(BaseSettings):
 
     document_directory: str = "sdf"
     device: str = "sd"
+    summarized_document_path: str = "test.pdf"
+    
     
 
     # YAML 파일 로드
@@ -59,6 +66,8 @@ class Settings(BaseSettings):
 
             self.document_directory = yaml_content["document_directory"]
             self.device = yaml_content["device"]
+            
+            self.summarized_document_path = yaml_content["summarized_document_path"]
 
 # settings 객체 생성 및 YAML 설정 로드
 settings = Settings()
