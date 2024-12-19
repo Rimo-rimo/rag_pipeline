@@ -1,0 +1,330 @@
+2024-11-29 16:57:59,480 - INFO - Load pretrained SentenceTransformer: BAAI/bge-m3
+2024-11-29 16:58:04,604 - INFO - 2 prompts are loaded, with the keys: ['query', 'text']
+2024-11-29 16:58:04,615 - DEBUG - Created new connection using: 8c17d836651d4578a908708fab45c9d5
+2024-11-29 16:58:56,101 - INFO - Starting batch processing from index 0 to 20000
+2024-11-29 17:53:09,409 - INFO - Successfully completed batch 0 to 20000
+2024-11-29 17:53:09,503 - INFO - Starting batch processing from index 20000 to 40000
+2024-11-29 18:30:47,024 - INFO - Successfully completed batch 20000 to 40000
+2024-11-29 18:30:47,105 - INFO - Starting batch processing from index 40000 to 60000
+2024-11-29 19:07:56,808 - INFO - Successfully completed batch 40000 to 60000
+2024-11-29 19:07:56,883 - INFO - Starting batch processing from index 60000 to 80000
+2024-11-29 19:44:24,000 - INFO - Successfully completed batch 60000 to 80000
+2024-11-29 19:44:24,079 - INFO - Starting batch processing from index 80000 to 100000
+2024-11-29 20:21:21,717 - INFO - Successfully completed batch 80000 to 100000
+2024-11-29 20:21:21,795 - INFO - Starting batch processing from index 100000 to 120000
+2024-11-29 20:57:53,078 - INFO - Successfully completed batch 100000 to 120000
+2024-11-29 20:57:53,155 - INFO - Starting batch processing from index 120000 to 140000
+2024-11-29 21:35:01,192 - INFO - Successfully completed batch 120000 to 140000
+2024-11-29 21:35:01,277 - INFO - Starting batch processing from index 140000 to 160000
+2024-11-29 22:11:08,559 - INFO - Successfully completed batch 140000 to 160000
+2024-11-29 22:11:08,639 - INFO - Starting batch processing from index 160000 to 180000
+2024-11-29 22:46:38,576 - INFO - Successfully completed batch 160000 to 180000
+2024-11-29 22:46:38,668 - INFO - Starting batch processing from index 180000 to 200000
+2024-11-29 23:23:10,775 - INFO - Successfully completed batch 180000 to 200000
+2024-11-29 23:23:10,850 - INFO - Starting batch processing from index 200000 to 220000
+2024-11-29 23:57:41,684 - INFO - Successfully completed batch 200000 to 220000
+2024-11-29 23:57:41,769 - INFO - Starting batch processing from index 220000 to 240000
+2024-11-30 00:30:15,697 - INFO - Successfully completed batch 220000 to 240000
+2024-11-30 00:30:15,770 - INFO - Starting batch processing from index 240000 to 260000
+2024-11-30 01:05:25,350 - INFO - Successfully completed batch 240000 to 260000
+2024-11-30 01:05:25,424 - INFO - Starting batch processing from index 260000 to 280000
+2024-11-30 01:38:49,366 - INFO - Successfully completed batch 260000 to 280000
+2024-11-30 01:38:49,438 - INFO - Starting batch processing from index 280000 to 300000
+2024-11-30 02:12:36,137 - INFO - Successfully completed batch 280000 to 300000
+2024-11-30 02:12:36,215 - INFO - Starting batch processing from index 300000 to 320000
+2024-11-30 02:44:00,282 - INFO - Successfully completed batch 300000 to 320000
+2024-11-30 02:44:00,368 - INFO - Starting batch processing from index 320000 to 340000
+2024-11-30 03:14:34,903 - INFO - Successfully completed batch 320000 to 340000
+2024-11-30 03:14:34,980 - INFO - Starting batch processing from index 340000 to 360000
+2024-11-30 03:47:22,138 - INFO - Successfully completed batch 340000 to 360000
+2024-11-30 03:47:22,210 - INFO - Starting batch processing from index 360000 to 380000
+2024-11-30 04:20:06,985 - INFO - Successfully completed batch 360000 to 380000
+2024-11-30 04:20:07,056 - INFO - Starting batch processing from index 380000 to 400000
+2024-11-30 04:52:46,160 - INFO - Successfully completed batch 380000 to 400000
+2024-11-30 04:52:46,236 - INFO - Starting batch processing from index 400000 to 420000
+2024-11-30 05:25:07,634 - INFO - Successfully completed batch 400000 to 420000
+2024-11-30 05:25:07,709 - INFO - Starting batch processing from index 420000 to 440000
+2024-11-30 05:57:43,566 - INFO - Successfully completed batch 420000 to 440000
+2024-11-30 05:57:43,639 - INFO - Starting batch processing from index 440000 to 460000
+2024-11-30 06:29:59,315 - INFO - Successfully completed batch 440000 to 460000
+2024-11-30 06:29:59,387 - INFO - Starting batch processing from index 460000 to 480000
+2024-11-30 07:02:39,504 - INFO - Successfully completed batch 460000 to 480000
+2024-11-30 07:02:39,577 - INFO - Starting batch processing from index 480000 to 500000
+2024-11-30 07:35:10,328 - INFO - Successfully completed batch 480000 to 500000
+2024-11-30 07:35:10,409 - INFO - Starting batch processing from index 500000 to 520000
+2024-11-30 08:08:19,561 - INFO - Successfully completed batch 500000 to 520000
+2024-11-30 08:08:19,644 - INFO - Starting batch processing from index 520000 to 540000
+2024-11-30 08:42:12,653 - INFO - Successfully completed batch 520000 to 540000
+2024-11-30 08:42:12,728 - INFO - Starting batch processing from index 540000 to 560000
+2024-11-30 09:14:50,026 - INFO - Successfully completed batch 540000 to 560000
+2024-11-30 09:14:50,097 - INFO - Starting batch processing from index 560000 to 580000
+2024-11-30 09:46:58,198 - INFO - Successfully completed batch 560000 to 580000
+2024-11-30 09:46:58,269 - INFO - Starting batch processing from index 580000 to 600000
+2024-11-30 10:21:30,062 - INFO - Successfully completed batch 580000 to 600000
+2024-11-30 10:21:30,142 - INFO - Starting batch processing from index 600000 to 620000
+2024-11-30 10:52:41,125 - INFO - Successfully completed batch 600000 to 620000
+2024-11-30 10:52:41,206 - INFO - Starting batch processing from index 620000 to 640000
+2024-11-30 11:22:14,085 - INFO - Successfully completed batch 620000 to 640000
+2024-11-30 11:22:14,154 - INFO - Starting batch processing from index 640000 to 660000
+2024-11-30 11:52:17,575 - INFO - Successfully completed batch 640000 to 660000
+2024-11-30 11:52:17,660 - INFO - Starting batch processing from index 660000 to 680000
+2024-11-30 12:24:52,352 - INFO - Successfully completed batch 660000 to 680000
+2024-11-30 12:24:52,425 - INFO - Starting batch processing from index 680000 to 700000
+2024-11-30 12:56:06,293 - INFO - Successfully completed batch 680000 to 700000
+2024-11-30 12:56:06,370 - INFO - Starting batch processing from index 700000 to 720000
+2024-11-30 13:27:38,880 - INFO - Successfully completed batch 700000 to 720000
+2024-11-30 13:27:38,962 - INFO - Starting batch processing from index 720000 to 740000
+2024-11-30 13:58:40,900 - INFO - Successfully completed batch 720000 to 740000
+2024-11-30 13:58:40,976 - INFO - Starting batch processing from index 740000 to 760000
+2024-11-30 14:29:56,508 - INFO - Successfully completed batch 740000 to 760000
+2024-11-30 14:29:56,608 - INFO - Starting batch processing from index 760000 to 780000
+2024-11-30 15:00:21,074 - INFO - Successfully completed batch 760000 to 780000
+2024-11-30 15:00:21,147 - INFO - Starting batch processing from index 780000 to 800000
+2024-11-30 15:30:32,282 - INFO - Successfully completed batch 780000 to 800000
+2024-11-30 15:30:32,356 - INFO - Starting batch processing from index 800000 to 820000
+2024-11-30 15:59:34,109 - INFO - Successfully completed batch 800000 to 820000
+2024-11-30 15:59:34,179 - INFO - Starting batch processing from index 820000 to 840000
+2024-11-30 16:27:41,059 - INFO - Successfully completed batch 820000 to 840000
+2024-11-30 16:27:41,141 - INFO - Starting batch processing from index 840000 to 860000
+2024-11-30 16:53:24,330 - INFO - Successfully completed batch 840000 to 860000
+2024-11-30 16:53:24,396 - INFO - Starting batch processing from index 860000 to 880000
+2024-11-30 17:19:39,965 - INFO - Successfully completed batch 860000 to 880000
+2024-11-30 17:19:40,030 - INFO - Starting batch processing from index 880000 to 900000
+2024-11-30 17:46:31,796 - INFO - Successfully completed batch 880000 to 900000
+2024-11-30 17:46:31,872 - INFO - Starting batch processing from index 900000 to 920000
+2024-11-30 18:10:50,558 - INFO - Successfully completed batch 900000 to 920000
+2024-11-30 18:10:50,621 - INFO - Starting batch processing from index 920000 to 940000
+2024-11-30 18:35:30,682 - INFO - Successfully completed batch 920000 to 940000
+2024-11-30 18:35:30,746 - INFO - Starting batch processing from index 940000 to 960000
+2024-11-30 19:03:36,035 - INFO - Successfully completed batch 940000 to 960000
+2024-11-30 19:03:36,110 - INFO - Starting batch processing from index 960000 to 980000
+2024-11-30 19:32:41,581 - INFO - Successfully completed batch 960000 to 980000
+2024-11-30 19:32:41,661 - INFO - Starting batch processing from index 980000 to 1000000
+2024-11-30 20:02:54,633 - INFO - Successfully completed batch 980000 to 1000000
+2024-11-30 20:02:54,705 - INFO - Starting batch processing from index 1000000 to 1020000
+2024-11-30 20:33:49,293 - INFO - Successfully completed batch 1000000 to 1020000
+2024-11-30 20:33:49,375 - INFO - Starting batch processing from index 1020000 to 1040000
+2024-11-30 21:04:30,185 - INFO - Successfully completed batch 1020000 to 1040000
+2024-11-30 21:04:30,259 - INFO - Starting batch processing from index 1040000 to 1060000
+2024-11-30 21:33:43,523 - INFO - Successfully completed batch 1040000 to 1060000
+2024-11-30 21:33:43,594 - INFO - Starting batch processing from index 1060000 to 1080000
+2024-11-30 21:59:23,425 - INFO - Successfully completed batch 1060000 to 1080000
+2024-11-30 21:59:23,490 - INFO - Starting batch processing from index 1080000 to 1100000
+2024-11-30 22:26:07,545 - INFO - Successfully completed batch 1080000 to 1100000
+2024-11-30 22:26:07,633 - INFO - Starting batch processing from index 1100000 to 1120000
+2024-11-30 22:52:58,155 - INFO - Successfully completed batch 1100000 to 1120000
+2024-11-30 22:52:58,225 - INFO - Starting batch processing from index 1120000 to 1140000
+2024-11-30 23:17:50,230 - INFO - Successfully completed batch 1120000 to 1140000
+2024-11-30 23:17:50,295 - INFO - Starting batch processing from index 1140000 to 1160000
+2024-11-30 23:41:19,377 - INFO - Successfully completed batch 1140000 to 1160000
+2024-11-30 23:41:19,445 - INFO - Starting batch processing from index 1160000 to 1180000
+2024-12-01 00:02:34,255 - INFO - Successfully completed batch 1160000 to 1180000
+2024-12-01 00:02:34,322 - INFO - Starting batch processing from index 1180000 to 1200000
+2024-12-01 00:25:23,230 - INFO - Successfully completed batch 1180000 to 1200000
+2024-12-01 00:25:23,298 - INFO - Starting batch processing from index 1200000 to 1220000
+2024-12-01 00:52:47,045 - INFO - Successfully completed batch 1200000 to 1220000
+2024-12-01 00:52:47,116 - INFO - Starting batch processing from index 1220000 to 1240000
+2024-12-01 01:20:20,965 - INFO - Successfully completed batch 1220000 to 1240000
+2024-12-01 01:20:21,037 - INFO - Starting batch processing from index 1240000 to 1260000
+2024-12-01 01:47:55,338 - INFO - Successfully completed batch 1240000 to 1260000
+2024-12-01 01:47:55,410 - INFO - Starting batch processing from index 1260000 to 1280000
+2024-12-01 02:16:24,658 - INFO - Successfully completed batch 1260000 to 1280000
+2024-12-01 02:16:24,728 - INFO - Starting batch processing from index 1280000 to 1300000
+2024-12-01 02:43:26,887 - INFO - Successfully completed batch 1280000 to 1300000
+2024-12-01 02:43:26,975 - INFO - Starting batch processing from index 1300000 to 1320000
+2024-12-01 03:11:32,611 - INFO - Successfully completed batch 1300000 to 1320000
+2024-12-01 03:11:32,681 - INFO - Starting batch processing from index 1320000 to 1340000
+2024-12-01 03:39:04,526 - INFO - Successfully completed batch 1320000 to 1340000
+2024-12-01 03:39:04,607 - INFO - Starting batch processing from index 1340000 to 1360000
+2024-12-01 04:05:04,355 - INFO - Successfully completed batch 1340000 to 1360000
+2024-12-01 04:05:04,423 - INFO - Starting batch processing from index 1360000 to 1380000
+2024-12-01 04:29:54,070 - INFO - Successfully completed batch 1360000 to 1380000
+2024-12-01 04:29:54,146 - INFO - Starting batch processing from index 1380000 to 1400000
+2024-12-01 04:54:46,070 - INFO - Successfully completed batch 1380000 to 1400000
+2024-12-01 04:54:46,144 - INFO - Starting batch processing from index 1400000 to 1420000
+2024-12-01 05:17:51,048 - INFO - Successfully completed batch 1400000 to 1420000
+2024-12-01 05:17:51,117 - INFO - Starting batch processing from index 1420000 to 1440000
+2024-12-01 05:40:16,100 - INFO - Successfully completed batch 1420000 to 1440000
+2024-12-01 05:40:16,170 - INFO - Starting batch processing from index 1440000 to 1460000
+2024-12-01 06:02:16,494 - INFO - Successfully completed batch 1440000 to 1460000
+2024-12-01 06:02:16,573 - INFO - Starting batch processing from index 1460000 to 1480000
+2024-12-01 06:28:50,987 - INFO - Successfully completed batch 1460000 to 1480000
+2024-12-01 06:28:51,071 - INFO - Starting batch processing from index 1480000 to 1500000
+2024-12-01 06:58:04,096 - INFO - Successfully completed batch 1480000 to 1500000
+2024-12-01 06:58:04,180 - INFO - Starting batch processing from index 1500000 to 1520000
+2024-12-01 07:25:26,017 - INFO - Successfully completed batch 1500000 to 1520000
+2024-12-01 07:25:26,087 - INFO - Starting batch processing from index 1520000 to 1540000
+2024-12-01 07:44:11,117 - INFO - Successfully completed batch 1520000 to 1540000
+2024-12-01 07:44:11,180 - INFO - Starting batch processing from index 1540000 to 1560000
+2024-12-01 08:11:32,344 - INFO - Successfully completed batch 1540000 to 1560000
+2024-12-01 08:11:32,426 - INFO - Starting batch processing from index 1560000 to 1580000
+2024-12-01 08:38:28,363 - INFO - Successfully completed batch 1560000 to 1580000
+2024-12-01 08:38:28,450 - INFO - Starting batch processing from index 1580000 to 1600000
+2024-12-01 09:06:38,706 - INFO - Successfully completed batch 1580000 to 1600000
+2024-12-01 09:06:38,789 - INFO - Starting batch processing from index 1600000 to 1620000
+2024-12-01 09:34:55,763 - INFO - Successfully completed batch 1600000 to 1620000
+2024-12-01 09:34:55,844 - INFO - Starting batch processing from index 1620000 to 1640000
+2024-12-01 09:59:46,602 - INFO - Successfully completed batch 1620000 to 1640000
+2024-12-01 09:59:46,673 - INFO - Starting batch processing from index 1640000 to 1660000
+2024-12-01 10:25:31,394 - INFO - Successfully completed batch 1640000 to 1660000
+2024-12-01 10:25:31,483 - INFO - Starting batch processing from index 1660000 to 1680000
+2024-12-01 10:51:13,291 - INFO - Successfully completed batch 1660000 to 1680000
+2024-12-01 10:51:13,381 - INFO - Starting batch processing from index 1680000 to 1700000
+2024-12-01 11:13:54,891 - INFO - Successfully completed batch 1680000 to 1700000
+2024-12-01 11:13:54,966 - INFO - Starting batch processing from index 1700000 to 1720000
+2024-12-01 11:35:14,351 - INFO - Successfully completed batch 1700000 to 1720000
+2024-12-01 11:35:14,444 - INFO - Starting batch processing from index 1720000 to 1740000
+2024-12-01 11:59:24,942 - INFO - Successfully completed batch 1720000 to 1740000
+2024-12-01 11:59:25,017 - INFO - Starting batch processing from index 1740000 to 1760000
+2024-12-01 12:23:28,967 - INFO - Successfully completed batch 1740000 to 1760000
+2024-12-01 12:23:29,033 - INFO - Starting batch processing from index 1760000 to 1780000
+2024-12-01 12:47:28,372 - INFO - Successfully completed batch 1760000 to 1780000
+2024-12-01 12:47:28,447 - INFO - Starting batch processing from index 1780000 to 1800000
+2024-12-01 13:13:39,432 - INFO - Successfully completed batch 1780000 to 1800000
+2024-12-01 13:13:39,502 - INFO - Starting batch processing from index 1800000 to 1820000
+2024-12-01 13:40:03,249 - INFO - Successfully completed batch 1800000 to 1820000
+2024-12-01 13:40:03,319 - INFO - Starting batch processing from index 1820000 to 1840000
+2024-12-01 14:07:17,219 - INFO - Successfully completed batch 1820000 to 1840000
+2024-12-01 14:07:17,292 - INFO - Starting batch processing from index 1840000 to 1860000
+2024-12-01 14:35:49,413 - INFO - Successfully completed batch 1840000 to 1860000
+2024-12-01 14:35:49,487 - INFO - Starting batch processing from index 1860000 to 1880000
+2024-12-01 14:59:20,239 - INFO - Successfully completed batch 1860000 to 1880000
+2024-12-01 14:59:20,314 - INFO - Starting batch processing from index 1880000 to 1900000
+2024-12-01 15:24:08,909 - INFO - Successfully completed batch 1880000 to 1900000
+2024-12-01 15:24:08,998 - INFO - Starting batch processing from index 1900000 to 1920000
+2024-12-01 15:49:20,875 - INFO - Successfully completed batch 1900000 to 1920000
+2024-12-01 15:49:20,944 - INFO - Starting batch processing from index 1920000 to 1940000
+2024-12-01 16:11:55,707 - INFO - Successfully completed batch 1920000 to 1940000
+2024-12-01 16:11:55,773 - INFO - Starting batch processing from index 1940000 to 1960000
+2024-12-01 16:39:07,419 - INFO - Successfully completed batch 1940000 to 1960000
+2024-12-01 16:39:07,493 - INFO - Starting batch processing from index 1960000 to 1980000
+2024-12-01 17:06:31,128 - INFO - Successfully completed batch 1960000 to 1980000
+2024-12-01 17:06:31,216 - INFO - Starting batch processing from index 1980000 to 2000000
+2024-12-01 17:34:09,386 - INFO - Successfully completed batch 1980000 to 2000000
+2024-12-01 17:34:09,467 - INFO - Starting batch processing from index 2000000 to 2020000
+2024-12-01 18:00:49,383 - INFO - Successfully completed batch 2000000 to 2020000
+2024-12-01 18:00:49,465 - INFO - Starting batch processing from index 2020000 to 2040000
+2024-12-01 18:28:00,196 - INFO - Successfully completed batch 2020000 to 2040000
+2024-12-01 18:28:00,275 - INFO - Starting batch processing from index 2040000 to 2060000
+2024-12-01 18:53:24,994 - INFO - Successfully completed batch 2040000 to 2060000
+2024-12-01 18:53:25,066 - INFO - Starting batch processing from index 2060000 to 2080000
+2024-12-01 19:19:59,567 - INFO - Successfully completed batch 2060000 to 2080000
+2024-12-01 19:19:59,638 - INFO - Starting batch processing from index 2080000 to 2100000
+2024-12-01 19:45:46,719 - INFO - Successfully completed batch 2080000 to 2100000
+2024-12-01 19:45:46,790 - INFO - Starting batch processing from index 2100000 to 2120000
+2024-12-01 20:10:55,719 - INFO - Successfully completed batch 2100000 to 2120000
+2024-12-01 20:10:55,795 - INFO - Starting batch processing from index 2120000 to 2140000
+2024-12-01 20:38:55,098 - INFO - Successfully completed batch 2120000 to 2140000
+2024-12-01 20:38:55,173 - INFO - Starting batch processing from index 2140000 to 2160000
+2024-12-01 21:06:10,794 - INFO - Successfully completed batch 2140000 to 2160000
+2024-12-01 21:06:10,872 - INFO - Starting batch processing from index 2160000 to 2180000
+2024-12-01 21:30:35,336 - INFO - Successfully completed batch 2160000 to 2180000
+2024-12-01 21:30:35,409 - INFO - Starting batch processing from index 2180000 to 2200000
+2024-12-01 21:50:51,163 - INFO - Successfully completed batch 2180000 to 2200000
+2024-12-01 21:50:51,241 - INFO - Starting batch processing from index 2200000 to 2220000
+2024-12-01 22:16:15,592 - INFO - Successfully completed batch 2200000 to 2220000
+2024-12-01 22:16:15,662 - INFO - Starting batch processing from index 2220000 to 2240000
+2024-12-01 22:41:41,542 - INFO - Successfully completed batch 2220000 to 2240000
+2024-12-01 22:41:41,613 - INFO - Starting batch processing from index 2240000 to 2260000
+2024-12-01 23:07:49,764 - INFO - Successfully completed batch 2240000 to 2260000
+2024-12-01 23:07:49,842 - INFO - Starting batch processing from index 2260000 to 2280000
+2024-12-01 23:34:02,055 - INFO - Successfully completed batch 2260000 to 2280000
+2024-12-01 23:34:02,127 - INFO - Starting batch processing from index 2280000 to 2300000
+2024-12-01 23:59:46,504 - INFO - Successfully completed batch 2280000 to 2300000
+2024-12-01 23:59:46,578 - INFO - Starting batch processing from index 2300000 to 2320000
+2024-12-02 00:21:26,132 - INFO - Successfully completed batch 2300000 to 2320000
+2024-12-02 00:21:26,203 - INFO - Starting batch processing from index 2320000 to 2340000
+2024-12-02 00:46:41,409 - INFO - Successfully completed batch 2320000 to 2340000
+2024-12-02 00:46:41,479 - INFO - Starting batch processing from index 2340000 to 2360000
+2024-12-02 01:08:56,188 - INFO - Successfully completed batch 2340000 to 2360000
+2024-12-02 01:08:56,262 - INFO - Starting batch processing from index 2360000 to 2380000
+2024-12-02 01:35:19,480 - INFO - Successfully completed batch 2360000 to 2380000
+2024-12-02 01:35:19,553 - INFO - Starting batch processing from index 2380000 to 2400000
+2024-12-02 01:58:37,530 - INFO - Successfully completed batch 2380000 to 2400000
+2024-12-02 01:58:37,598 - INFO - Starting batch processing from index 2400000 to 2420000
+2024-12-02 02:20:15,256 - INFO - Successfully completed batch 2400000 to 2420000
+2024-12-02 02:20:15,327 - INFO - Starting batch processing from index 2420000 to 2440000
+2024-12-02 02:46:43,983 - INFO - Successfully completed batch 2420000 to 2440000
+2024-12-02 02:46:44,060 - INFO - Starting batch processing from index 2440000 to 2460000
+2024-12-02 03:13:02,318 - INFO - Successfully completed batch 2440000 to 2460000
+2024-12-02 03:13:02,393 - INFO - Starting batch processing from index 2460000 to 2480000
+2024-12-02 03:38:13,400 - INFO - Successfully completed batch 2460000 to 2480000
+2024-12-02 03:38:13,474 - INFO - Starting batch processing from index 2480000 to 2500000
+2024-12-02 04:08:14,385 - INFO - Successfully completed batch 2480000 to 2500000
+2024-12-02 04:08:14,470 - INFO - Starting batch processing from index 2500000 to 2520000
+2024-12-02 04:37:39,174 - INFO - Successfully completed batch 2500000 to 2520000
+2024-12-02 04:37:39,254 - INFO - Starting batch processing from index 2520000 to 2540000
+2024-12-02 05:15:56,127 - INFO - Successfully completed batch 2520000 to 2540000
+2024-12-02 05:15:56,222 - INFO - Starting batch processing from index 2540000 to 2560000
+2024-12-02 07:03:21,928 - INFO - Successfully completed batch 2540000 to 2560000
+2024-12-02 07:03:22,140 - INFO - Starting batch processing from index 2560000 to 2580000
+2024-12-02 07:57:07,725 - INFO - Successfully completed batch 2560000 to 2580000
+2024-12-02 07:57:07,851 - INFO - Starting batch processing from index 2580000 to 2600000
+2024-12-02 08:38:42,555 - INFO - Successfully completed batch 2580000 to 2600000
+2024-12-02 08:38:42,668 - INFO - Starting batch processing from index 2600000 to 2620000
+2024-12-02 09:19:14,081 - INFO - Successfully completed batch 2600000 to 2620000
+2024-12-02 09:19:14,186 - INFO - Starting batch processing from index 2620000 to 2640000
+2024-12-02 09:47:16,167 - INFO - Successfully completed batch 2620000 to 2640000
+2024-12-02 09:47:16,244 - INFO - Starting batch processing from index 2640000 to 2660000
+2024-12-02 10:14:47,914 - INFO - Successfully completed batch 2640000 to 2660000
+2024-12-02 10:14:47,992 - INFO - Starting batch processing from index 2660000 to 2680000
+2024-12-02 10:42:13,052 - INFO - Successfully completed batch 2660000 to 2680000
+2024-12-02 10:42:13,131 - INFO - Starting batch processing from index 2680000 to 2700000
+2024-12-02 11:09:15,608 - INFO - Successfully completed batch 2680000 to 2700000
+2024-12-02 11:09:15,682 - INFO - Starting batch processing from index 2700000 to 2720000
+2024-12-02 11:34:18,026 - INFO - Successfully completed batch 2700000 to 2720000
+2024-12-02 11:34:18,098 - INFO - Starting batch processing from index 2720000 to 2740000
+2024-12-02 11:59:40,639 - INFO - Successfully completed batch 2720000 to 2740000
+2024-12-02 11:59:40,713 - INFO - Starting batch processing from index 2740000 to 2760000
+2024-12-02 12:23:17,061 - INFO - Successfully completed batch 2740000 to 2760000
+2024-12-02 12:23:17,131 - INFO - Starting batch processing from index 2760000 to 2780000
+2024-12-02 12:47:57,808 - INFO - Successfully completed batch 2760000 to 2780000
+2024-12-02 12:47:57,880 - INFO - Starting batch processing from index 2780000 to 2800000
+2024-12-02 13:12:11,575 - INFO - Successfully completed batch 2780000 to 2800000
+2024-12-02 13:12:11,650 - INFO - Starting batch processing from index 2800000 to 2820000
+2024-12-02 13:38:41,742 - INFO - Successfully completed batch 2800000 to 2820000
+2024-12-02 13:38:41,818 - INFO - Starting batch processing from index 2820000 to 2840000
+2024-12-02 14:05:17,489 - INFO - Successfully completed batch 2820000 to 2840000
+2024-12-02 14:05:17,571 - INFO - Starting batch processing from index 2840000 to 2860000
+2024-12-02 14:31:07,702 - INFO - Successfully completed batch 2840000 to 2860000
+2024-12-02 14:31:07,781 - INFO - Starting batch processing from index 2860000 to 2880000
+2024-12-02 14:56:44,719 - INFO - Successfully completed batch 2860000 to 2880000
+2024-12-02 14:56:44,789 - INFO - Starting batch processing from index 2880000 to 2900000
+2024-12-02 15:22:49,858 - INFO - Successfully completed batch 2880000 to 2900000
+2024-12-02 15:22:49,930 - INFO - Starting batch processing from index 2900000 to 2920000
+2024-12-02 15:49:13,113 - INFO - Successfully completed batch 2900000 to 2920000
+2024-12-02 15:49:13,196 - INFO - Starting batch processing from index 2920000 to 2940000
+2024-12-02 16:14:54,483 - INFO - Successfully completed batch 2920000 to 2940000
+2024-12-02 16:14:54,566 - INFO - Starting batch processing from index 2940000 to 2960000
+2024-12-02 16:39:32,373 - INFO - Successfully completed batch 2940000 to 2960000
+2024-12-02 16:39:32,452 - INFO - Starting batch processing from index 2960000 to 2980000
+2024-12-02 17:03:06,116 - INFO - Successfully completed batch 2960000 to 2980000
+2024-12-02 17:03:06,185 - INFO - Starting batch processing from index 2980000 to 3000000
+2024-12-02 17:26:57,669 - INFO - Successfully completed batch 2980000 to 3000000
+2024-12-02 17:26:57,738 - INFO - Starting batch processing from index 3000000 to 3020000
+2024-12-02 17:49:32,216 - INFO - Successfully completed batch 3000000 to 3020000
+2024-12-02 17:49:32,285 - INFO - Starting batch processing from index 3020000 to 3040000
+2024-12-02 18:10:59,817 - INFO - Successfully completed batch 3020000 to 3040000
+2024-12-02 18:10:59,881 - INFO - Starting batch processing from index 3040000 to 3060000
+2024-12-02 18:33:14,290 - INFO - Successfully completed batch 3040000 to 3060000
+2024-12-02 18:33:14,357 - INFO - Starting batch processing from index 3060000 to 3080000
+2024-12-02 18:57:13,520 - INFO - Successfully completed batch 3060000 to 3080000
+2024-12-02 18:57:13,592 - INFO - Starting batch processing from index 3080000 to 3100000
+2024-12-02 19:20:39,727 - INFO - Successfully completed batch 3080000 to 3100000
+2024-12-02 19:20:39,817 - INFO - Starting batch processing from index 3100000 to 3120000
+2024-12-02 19:45:14,225 - INFO - Successfully completed batch 3100000 to 3120000
+2024-12-02 19:45:14,305 - INFO - Starting batch processing from index 3120000 to 3140000
+2024-12-02 20:09:55,020 - INFO - Successfully completed batch 3120000 to 3140000
+2024-12-02 20:09:55,093 - INFO - Starting batch processing from index 3140000 to 3160000
+2024-12-02 20:35:10,162 - INFO - Successfully completed batch 3140000 to 3160000
+2024-12-02 20:35:10,237 - INFO - Starting batch processing from index 3160000 to 3180000
+2024-12-02 20:58:21,840 - INFO - Successfully completed batch 3160000 to 3180000
+2024-12-02 20:58:21,914 - INFO - Starting batch processing from index 3180000 to 3200000
+2024-12-02 21:24:58,667 - INFO - Successfully completed batch 3180000 to 3200000
+2024-12-02 21:24:58,768 - INFO - Starting batch processing from index 3200000 to 3220000
+2024-12-02 21:50:00,702 - INFO - Successfully completed batch 3200000 to 3220000
+2024-12-02 21:50:00,775 - INFO - Starting batch processing from index 3220000 to 3240000
+2024-12-02 22:15:39,783 - INFO - Successfully completed batch 3220000 to 3240000
+2024-12-02 22:15:39,854 - INFO - Starting batch processing from index 3240000 to 3260000
+2024-12-02 22:41:08,615 - INFO - Successfully completed batch 3240000 to 3260000
+2024-12-02 22:41:08,687 - INFO - Starting batch processing from index 3260000 to 3280000

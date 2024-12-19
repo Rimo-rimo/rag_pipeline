@@ -1,7 +1,7 @@
 # RAG 시스템에서 사용할 파라미터를 세팅
 
 vector_store:
-  collection_name: "santa_openai_origin_1024"
+  collection_name: "wiki_bgem3"
 
 preprocessor:
   chunk_size: 1024

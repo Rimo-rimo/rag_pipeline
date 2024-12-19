@@ -35,15 +35,7 @@ st.markdown(
 ) 
 
 with st.sidebar:
-    # collection_name = st.selectbox(
-    #     "Collection Name",
-    #     ("santa_openai_origin_1024", "HeartOn_openai_origin_1024"),
-    # )
-    collection_name  =  "wiki_ko_bgem3"
-    # if collection_name == "santa_openai_origin_1024":
-    #     st.image("/home/livin/rag_pipeline/images/santa.png")
-    # else:
-    #     st.image("/home/livin/rag_pipeline/images/heart.png")
+    collection_name  =  "wiki_bgem3"
 
     top_n = st.slider("top N", 1, 50, 10)
 
@@ -59,18 +51,18 @@ with col1:
         with st.chat_message("user"):
             st.write(query)
         with st.chat_message("assistant"):
-            with st.spinner(text="AI가 문서를 살펴보는 중입니다.."):
+            with st.spinner(text="AI가 답변중입니다.."):
                 response = chat_request(query=query, collection_name=collection_name, top_n=int(top_n), is_rerank=is_rerank, embed_model="bgem3")
                 with st.container(border=True):
                     st.markdown(response["response"])
 
 with col2:
     if query:
-        st.markdown("<h1 style='text-align: center;'>참고한 위키백과</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center;'>참고 자료</h1>", unsafe_allow_html=True)
         with st.container(border=True):
             for n, node in enumerate(response["nodes"]):
-                st.markdown(node["metadata"]["filename"])
+                col2_title, col2_link = st.columns([8,2])
+                # col2_title_md = f'<h5>{node["metadata"]["file_name"]}</h5>'
+                col2_title.markdown(f'<h5>{node["metadata"]["file_name"]}</h5>', unsafe_allow_html=True)
+                col2_link.link_button("링크", node["metadata"]["url"], use_container_width=True)
                 stx.scrollableTextbox(node["text"], key=f"reason_{n}", height=220)
-                # st.text(node)
-                    
- 

@@ -1,0 +1,55 @@
+{
+    "status": "success",
+    "message": "검색 결과를 성공적으로 반환했습니다.",
+    "data": {
+        "documents":[
+            {
+              "metadata": {
+                "file_name": "test_1.pdf",
+                "url": "test_1.com",
+                "file_path": "/data/sub/test_1.pdf",
+                "file_type": "application/pdf",
+                "file_size": 24920366,
+                "creation_date": "2024-09-04",
+                "last_modified_date": "2024-09-04"
+              },
+              "nodes": [
+                {
+                  "id": "b39b8a58-5591-4579-84c2-ad3c17e8beaa",
+                  "text": "rimo는 marimo라는 해양 생물로 부터 따온 이름이다.",
+                  "page_label": "546",
+                  "score": 0.67
+                },
+                {
+                  "id": "c7f8a67e-5591-4579-84c2-ad3c17e8bfaa",
+                  "text": "marimo는 일본에서 주로 발견되는 녹조류이다.",
+                  "page_label": "540",
+                  "score": 0.58
+                }
+              ]
+            },
+            {
+              "metadata": {
+                "file_name": "test_2.pdf",
+                "url": "test_2.com",
+                "file_path": "/data/sub/test_2.pdf",
+                "file_type": "application/pdf",
+                "file_size": 12345678,
+                "creation_date": "2024-09-01",
+                "last_modified_date": "2024-09-01"
+              },
+              "nodes": [
+                {
+                  "id": "d9f1e68b-1234-5678-9101-ab2c17e8cfaa",
+                  "text": "example 문서는 예제를 위해 사용됩니다.",
+                  "page_label": "50",
+                  "score": 0.75
+                }
+              ]
+            }
+          ]
+        },
+        "total_documents": 2,
+        "total_nodes": 10
+    }
+  

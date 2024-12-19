@@ -1,0 +1,318 @@
+2024-11-29 16:57:55,076 - INFO - Load pretrained SentenceTransformer: BAAI/bge-m3
+2024-11-29 16:58:01,330 - INFO - 2 prompts are loaded, with the keys: ['query', 'text']
+2024-11-29 16:58:01,437 - DEBUG - Created new connection using: 4e728281afa24045b13c6b3409fa4eda
+2024-11-29 16:58:56,925 - INFO - Starting batch processing from index 6387814 to 6407813
+2024-11-29 17:37:35,240 - INFO - Successfully completed batch 6387814 to 6407813
+2024-11-29 17:37:35,313 - INFO - Starting batch processing from index 6367814 to 6387813
+2024-11-29 18:15:16,424 - INFO - Successfully completed batch 6367814 to 6387813
+2024-11-29 18:15:16,507 - INFO - Starting batch processing from index 6347814 to 6367813
+2024-11-29 18:52:35,388 - INFO - Successfully completed batch 6347814 to 6367813
+2024-11-29 18:52:35,464 - INFO - Starting batch processing from index 6327814 to 6347813
+2024-11-29 19:30:24,556 - INFO - Successfully completed batch 6327814 to 6347813
+2024-11-29 19:30:24,633 - INFO - Starting batch processing from index 6307814 to 6327813
+2024-11-29 20:10:39,219 - INFO - Successfully completed batch 6307814 to 6327813
+2024-11-29 20:10:39,300 - INFO - Starting batch processing from index 6287814 to 6307813
+2024-11-29 20:50:32,072 - INFO - Successfully completed batch 6287814 to 6307813
+2024-11-29 20:50:32,170 - INFO - Starting batch processing from index 6267814 to 6287813
+2024-11-29 21:30:30,503 - INFO - Successfully completed batch 6267814 to 6287813
+2024-11-29 21:30:30,594 - INFO - Starting batch processing from index 6247814 to 6267813
+2024-11-29 22:11:02,110 - INFO - Successfully completed batch 6247814 to 6267813
+2024-11-29 22:11:02,203 - INFO - Starting batch processing from index 6227814 to 6247813
+2024-11-29 22:50:38,469 - INFO - Successfully completed batch 6227814 to 6247813
+2024-11-29 22:50:38,553 - INFO - Starting batch processing from index 6207814 to 6227813
+2024-11-29 23:30:28,076 - INFO - Successfully completed batch 6207814 to 6227813
+2024-11-29 23:30:28,168 - INFO - Starting batch processing from index 6187814 to 6207813
+2024-11-30 00:10:58,589 - INFO - Successfully completed batch 6187814 to 6207813
+2024-11-30 00:10:58,682 - INFO - Starting batch processing from index 6167814 to 6187813
+2024-11-30 00:53:15,399 - INFO - Successfully completed batch 6167814 to 6187813
+2024-11-30 00:53:15,488 - INFO - Starting batch processing from index 6147814 to 6167813
+2024-11-30 01:35:49,908 - INFO - Successfully completed batch 6147814 to 6167813
+2024-11-30 01:35:50,022 - INFO - Starting batch processing from index 6127814 to 6147813
+2024-11-30 02:18:24,192 - INFO - Successfully completed batch 6127814 to 6147813
+2024-11-30 02:18:24,280 - INFO - Starting batch processing from index 6107814 to 6127813
+2024-11-30 03:01:49,688 - INFO - Successfully completed batch 6107814 to 6127813
+2024-11-30 03:01:49,781 - INFO - Starting batch processing from index 6087814 to 6107813
+2024-11-30 03:47:09,241 - INFO - Successfully completed batch 6087814 to 6107813
+2024-11-30 03:47:09,346 - INFO - Starting batch processing from index 6067814 to 6087813
+2024-11-30 04:32:54,124 - INFO - Successfully completed batch 6067814 to 6087813
+2024-11-30 04:32:54,227 - INFO - Starting batch processing from index 6047814 to 6067813
+2024-11-30 05:19:01,651 - INFO - Successfully completed batch 6047814 to 6067813
+2024-11-30 05:19:01,747 - INFO - Starting batch processing from index 6027814 to 6047813
+2024-11-30 06:03:46,606 - INFO - Successfully completed batch 6027814 to 6047813
+2024-11-30 06:03:46,707 - INFO - Starting batch processing from index 6007814 to 6027813
+2024-11-30 06:51:29,866 - INFO - Successfully completed batch 6007814 to 6027813
+2024-11-30 06:51:29,965 - INFO - Starting batch processing from index 5987814 to 6007813
+2024-11-30 07:40:10,625 - INFO - Successfully completed batch 5987814 to 6007813
+2024-11-30 07:40:10,737 - INFO - Starting batch processing from index 5967814 to 5987813
+2024-11-30 08:28:42,317 - INFO - Successfully completed batch 5967814 to 5987813
+2024-11-30 08:28:42,438 - INFO - Starting batch processing from index 5947814 to 5967813
+2024-11-30 09:17:13,747 - INFO - Successfully completed batch 5947814 to 5967813
+2024-11-30 09:17:13,846 - INFO - Starting batch processing from index 5927814 to 5947813
+2024-11-30 10:06:09,897 - INFO - Successfully completed batch 5927814 to 5947813
+2024-11-30 10:06:10,031 - INFO - Starting batch processing from index 5907814 to 5927813
+2024-11-30 10:56:25,248 - INFO - Successfully completed batch 5907814 to 5927813
+2024-11-30 10:56:25,362 - INFO - Starting batch processing from index 5887814 to 5907813
+2024-11-30 11:47:10,562 - INFO - Successfully completed batch 5887814 to 5907813
+2024-11-30 11:47:10,675 - INFO - Starting batch processing from index 5867814 to 5887813
+2024-11-30 12:39:28,999 - INFO - Successfully completed batch 5867814 to 5887813
+2024-11-30 12:39:29,136 - INFO - Starting batch processing from index 5847814 to 5867813
+2024-11-30 13:36:42,569 - INFO - Successfully completed batch 5847814 to 5867813
+2024-11-30 13:36:42,691 - INFO - Starting batch processing from index 5827814 to 5847813
+2024-11-30 14:37:47,716 - INFO - Successfully completed batch 5827814 to 5847813
+2024-11-30 14:37:47,880 - INFO - Starting batch processing from index 5807814 to 5827813
+2024-11-30 15:40:07,632 - INFO - Successfully completed batch 5807814 to 5827813
+2024-11-30 15:40:07,767 - INFO - Starting batch processing from index 5787814 to 5807813
+2024-11-30 16:48:41,956 - INFO - Successfully completed batch 5787814 to 5807813
+2024-11-30 16:48:42,098 - INFO - Starting batch processing from index 5767814 to 5787813
+2024-11-30 18:03:05,056 - INFO - Successfully completed batch 5767814 to 5787813
+2024-11-30 18:03:05,214 - INFO - Starting batch processing from index 5747814 to 5767813
+2024-11-30 19:23:45,959 - INFO - Successfully completed batch 5747814 to 5767813
+2024-11-30 19:23:46,116 - INFO - Starting batch processing from index 5727814 to 5747813
+2024-11-30 20:43:49,490 - INFO - Successfully completed batch 5727814 to 5747813
+2024-11-30 20:43:49,672 - INFO - Starting batch processing from index 5707814 to 5727813
+2024-11-30 22:16:50,218 - INFO - Successfully completed batch 5707814 to 5727813
+2024-11-30 22:16:50,396 - INFO - Starting batch processing from index 5687814 to 5707813
+2024-11-30 22:41:16,744 - INFO - Successfully completed batch 5687814 to 5707813
+2024-11-30 22:41:16,808 - INFO - Starting batch processing from index 5667814 to 5687813
+2024-11-30 23:05:08,490 - INFO - Successfully completed batch 5667814 to 5687813
+2024-11-30 23:05:08,556 - INFO - Starting batch processing from index 5647814 to 5667813
+2024-11-30 23:29:12,622 - INFO - Successfully completed batch 5647814 to 5667813
+2024-11-30 23:29:12,686 - INFO - Starting batch processing from index 5627814 to 5647813
+2024-11-30 23:53:54,803 - INFO - Successfully completed batch 5627814 to 5647813
+2024-11-30 23:53:54,866 - INFO - Starting batch processing from index 5607814 to 5627813
+2024-12-01 00:18:57,104 - INFO - Successfully completed batch 5607814 to 5627813
+2024-12-01 00:18:57,172 - INFO - Starting batch processing from index 5587814 to 5607813
+2024-12-01 00:43:53,553 - INFO - Successfully completed batch 5587814 to 5607813
+2024-12-01 00:43:53,618 - INFO - Starting batch processing from index 5567814 to 5587813
+2024-12-01 01:06:56,994 - INFO - Successfully completed batch 5567814 to 5587813
+2024-12-01 01:06:57,063 - INFO - Starting batch processing from index 5547814 to 5567813
+2024-12-01 01:30:17,630 - INFO - Successfully completed batch 5547814 to 5567813
+2024-12-01 01:30:17,690 - INFO - Starting batch processing from index 5527814 to 5547813
+2024-12-01 01:54:43,732 - INFO - Successfully completed batch 5527814 to 5547813
+2024-12-01 01:54:43,795 - INFO - Starting batch processing from index 5507814 to 5527813
+2024-12-01 02:20:34,349 - INFO - Successfully completed batch 5507814 to 5527813
+2024-12-01 02:20:34,413 - INFO - Starting batch processing from index 5487814 to 5507813
+2024-12-01 02:45:30,784 - INFO - Successfully completed batch 5487814 to 5507813
+2024-12-01 02:45:30,854 - INFO - Starting batch processing from index 5467814 to 5487813
+2024-12-01 03:09:48,636 - INFO - Successfully completed batch 5467814 to 5487813
+2024-12-01 03:09:48,701 - INFO - Starting batch processing from index 5447814 to 5467813
+2024-12-01 03:34:05,372 - INFO - Successfully completed batch 5447814 to 5467813
+2024-12-01 03:34:05,434 - INFO - Starting batch processing from index 5427814 to 5447813
+2024-12-01 03:58:50,943 - INFO - Successfully completed batch 5427814 to 5447813
+2024-12-01 03:58:51,025 - INFO - Starting batch processing from index 5407814 to 5427813
+2024-12-01 04:23:45,914 - INFO - Successfully completed batch 5407814 to 5427813
+2024-12-01 04:23:46,000 - INFO - Starting batch processing from index 5387814 to 5407813
+2024-12-01 04:47:01,403 - INFO - Successfully completed batch 5387814 to 5407813
+2024-12-01 04:47:01,472 - INFO - Starting batch processing from index 5367814 to 5387813
+2024-12-01 05:12:09,157 - INFO - Successfully completed batch 5367814 to 5387813
+2024-12-01 05:12:09,224 - INFO - Starting batch processing from index 5347814 to 5367813
+2024-12-01 05:36:16,661 - INFO - Successfully completed batch 5347814 to 5367813
+2024-12-01 05:36:16,731 - INFO - Starting batch processing from index 5327814 to 5347813
+2024-12-01 06:00:54,795 - INFO - Successfully completed batch 5327814 to 5347813
+2024-12-01 06:00:54,863 - INFO - Starting batch processing from index 5307814 to 5327813
+2024-12-01 06:25:27,720 - INFO - Successfully completed batch 5307814 to 5327813
+2024-12-01 06:25:27,794 - INFO - Starting batch processing from index 5287814 to 5307813
+2024-12-01 06:48:38,378 - INFO - Successfully completed batch 5287814 to 5307813
+2024-12-01 06:48:38,441 - INFO - Starting batch processing from index 5267814 to 5287813
+2024-12-01 07:13:12,638 - INFO - Successfully completed batch 5267814 to 5287813
+2024-12-01 07:13:12,711 - INFO - Starting batch processing from index 5247814 to 5267813
+2024-12-01 07:36:48,291 - INFO - Successfully completed batch 5247814 to 5267813
+2024-12-01 07:36:48,361 - INFO - Starting batch processing from index 5227814 to 5247813
+2024-12-01 08:01:04,565 - INFO - Successfully completed batch 5227814 to 5247813
+2024-12-01 08:01:04,627 - INFO - Starting batch processing from index 5207814 to 5227813
+2024-12-01 08:23:03,996 - INFO - Successfully completed batch 5207814 to 5227813
+2024-12-01 08:23:04,063 - INFO - Starting batch processing from index 5187814 to 5207813
+2024-12-01 08:48:07,712 - INFO - Successfully completed batch 5187814 to 5207813
+2024-12-01 08:48:07,786 - INFO - Starting batch processing from index 5167814 to 5187813
+2024-12-01 09:10:41,654 - INFO - Successfully completed batch 5167814 to 5187813
+2024-12-01 09:10:41,728 - INFO - Starting batch processing from index 5147814 to 5167813
+2024-12-01 09:33:01,853 - INFO - Successfully completed batch 5147814 to 5167813
+2024-12-01 09:33:01,922 - INFO - Starting batch processing from index 5127814 to 5147813
+2024-12-01 09:56:04,071 - INFO - Successfully completed batch 5127814 to 5147813
+2024-12-01 09:56:04,136 - INFO - Starting batch processing from index 5107814 to 5127813
+2024-12-01 10:20:06,477 - INFO - Successfully completed batch 5107814 to 5127813
+2024-12-01 10:20:06,551 - INFO - Starting batch processing from index 5087814 to 5107813
+2024-12-01 10:43:25,503 - INFO - Successfully completed batch 5087814 to 5107813
+2024-12-01 10:43:25,569 - INFO - Starting batch processing from index 5067814 to 5087813
+2024-12-01 11:09:37,322 - INFO - Successfully completed batch 5067814 to 5087813
+2024-12-01 11:09:37,408 - INFO - Starting batch processing from index 5047814 to 5067813
+2024-12-01 11:34:16,515 - INFO - Successfully completed batch 5047814 to 5067813
+2024-12-01 11:34:16,612 - INFO - Starting batch processing from index 5027814 to 5047813
+2024-12-01 11:57:51,759 - INFO - Successfully completed batch 5027814 to 5047813
+2024-12-01 11:57:51,824 - INFO - Starting batch processing from index 5007814 to 5027813
+2024-12-01 12:21:49,883 - INFO - Successfully completed batch 5007814 to 5027813
+2024-12-01 12:21:49,949 - INFO - Starting batch processing from index 4987814 to 5007813
+2024-12-01 12:47:37,554 - INFO - Successfully completed batch 4987814 to 5007813
+2024-12-01 12:47:37,626 - INFO - Starting batch processing from index 4967814 to 4987813
+2024-12-01 13:11:18,421 - INFO - Successfully completed batch 4967814 to 4987813
+2024-12-01 13:11:18,484 - INFO - Starting batch processing from index 4947814 to 4967813
+2024-12-01 13:36:23,471 - INFO - Successfully completed batch 4947814 to 4967813
+2024-12-01 13:36:23,541 - INFO - Starting batch processing from index 4927814 to 4947813
+2024-12-01 13:59:41,302 - INFO - Successfully completed batch 4927814 to 4947813
+2024-12-01 13:59:41,371 - INFO - Starting batch processing from index 4907814 to 4927813
+2024-12-01 14:23:38,239 - INFO - Successfully completed batch 4907814 to 4927813
+2024-12-01 14:23:38,315 - INFO - Starting batch processing from index 4887814 to 4907813
+2024-12-01 14:48:35,465 - INFO - Successfully completed batch 4887814 to 4907813
+2024-12-01 14:48:35,536 - INFO - Starting batch processing from index 4867814 to 4887813
+2024-12-01 15:13:10,766 - INFO - Successfully completed batch 4867814 to 4887813
+2024-12-01 15:13:10,835 - INFO - Starting batch processing from index 4847814 to 4867813
+2024-12-01 15:38:00,867 - INFO - Successfully completed batch 4847814 to 4867813
+2024-12-01 15:38:00,932 - INFO - Starting batch processing from index 4827814 to 4847813
+2024-12-01 16:02:32,167 - INFO - Successfully completed batch 4827814 to 4847813
+2024-12-01 16:02:32,233 - INFO - Starting batch processing from index 4807814 to 4827813
+2024-12-01 16:22:47,217 - INFO - Successfully completed batch 4807814 to 4827813
+2024-12-01 16:22:47,277 - INFO - Starting batch processing from index 4787814 to 4807813
+2024-12-01 16:45:05,836 - INFO - Successfully completed batch 4787814 to 4807813
+2024-12-01 16:45:05,906 - INFO - Starting batch processing from index 4767814 to 4787813
+2024-12-01 17:07:27,356 - INFO - Successfully completed batch 4767814 to 4787813
+2024-12-01 17:07:27,421 - INFO - Starting batch processing from index 4747814 to 4767813
+2024-12-01 17:32:22,851 - INFO - Successfully completed batch 4747814 to 4767813
+2024-12-01 17:32:22,919 - INFO - Starting batch processing from index 4727814 to 4747813
+2024-12-01 17:55:54,987 - INFO - Successfully completed batch 4727814 to 4747813
+2024-12-01 17:55:55,055 - INFO - Starting batch processing from index 4707814 to 4727813
+2024-12-01 18:19:55,355 - INFO - Successfully completed batch 4707814 to 4727813
+2024-12-01 18:19:55,421 - INFO - Starting batch processing from index 4687814 to 4707813
+2024-12-01 18:43:23,341 - INFO - Successfully completed batch 4687814 to 4707813
+2024-12-01 18:43:23,411 - INFO - Starting batch processing from index 4667814 to 4687813
+2024-12-01 19:05:59,676 - INFO - Successfully completed batch 4667814 to 4687813
+2024-12-01 19:05:59,741 - INFO - Starting batch processing from index 4647814 to 4667813
+2024-12-01 19:31:38,339 - INFO - Successfully completed batch 4647814 to 4667813
+2024-12-01 19:31:38,407 - INFO - Starting batch processing from index 4627814 to 4647813
+2024-12-01 19:55:39,609 - INFO - Successfully completed batch 4627814 to 4647813
+2024-12-01 19:55:39,686 - INFO - Starting batch processing from index 4607814 to 4627813
+2024-12-01 20:21:05,727 - INFO - Successfully completed batch 4607814 to 4627813
+2024-12-01 20:21:05,799 - INFO - Starting batch processing from index 4587814 to 4607813
+2024-12-01 20:44:14,715 - INFO - Successfully completed batch 4587814 to 4607813
+2024-12-01 20:44:14,783 - INFO - Starting batch processing from index 4567814 to 4587813
+2024-12-01 21:08:26,143 - INFO - Successfully completed batch 4567814 to 4587813
+2024-12-01 21:08:26,214 - INFO - Starting batch processing from index 4547814 to 4567813
+2024-12-01 21:33:39,418 - INFO - Successfully completed batch 4547814 to 4567813
+2024-12-01 21:33:39,501 - INFO - Starting batch processing from index 4527814 to 4547813
+2024-12-01 21:56:48,528 - INFO - Successfully completed batch 4527814 to 4547813
+2024-12-01 21:56:48,600 - INFO - Starting batch processing from index 4507814 to 4527813
+2024-12-01 22:11:36,008 - INFO - Successfully completed batch 4507814 to 4527813
+2024-12-01 22:11:36,065 - INFO - Starting batch processing from index 4487814 to 4507813
+2024-12-01 22:33:20,759 - INFO - Successfully completed batch 4487814 to 4507813
+2024-12-01 22:33:20,833 - INFO - Starting batch processing from index 4467814 to 4487813
+2024-12-01 22:56:48,561 - INFO - Successfully completed batch 4467814 to 4487813
+2024-12-01 22:56:48,631 - INFO - Starting batch processing from index 4447814 to 4467813
+2024-12-01 23:20:11,425 - INFO - Successfully completed batch 4447814 to 4467813
+2024-12-01 23:20:11,491 - INFO - Starting batch processing from index 4427814 to 4447813
+2024-12-01 23:43:07,571 - INFO - Successfully completed batch 4427814 to 4447813
+2024-12-01 23:43:07,637 - INFO - Starting batch processing from index 4407814 to 4427813
+2024-12-02 00:06:05,100 - INFO - Successfully completed batch 4407814 to 4427813
+2024-12-02 00:06:05,167 - INFO - Starting batch processing from index 4387814 to 4407813
+2024-12-02 00:29:33,409 - INFO - Successfully completed batch 4387814 to 4407813
+2024-12-02 00:29:33,475 - INFO - Starting batch processing from index 4367814 to 4387813
+2024-12-02 00:54:06,736 - INFO - Successfully completed batch 4367814 to 4387813
+2024-12-02 00:54:06,808 - INFO - Starting batch processing from index 4347814 to 4367813
+2024-12-02 01:20:12,580 - INFO - Successfully completed batch 4347814 to 4367813
+2024-12-02 01:20:12,651 - INFO - Starting batch processing from index 4327814 to 4347813
+2024-12-02 01:43:50,859 - INFO - Successfully completed batch 4327814 to 4347813
+2024-12-02 01:43:50,943 - INFO - Starting batch processing from index 4307814 to 4327813
+2024-12-02 02:07:36,459 - INFO - Successfully completed batch 4307814 to 4327813
+2024-12-02 02:07:36,532 - INFO - Starting batch processing from index 4287814 to 4307813
+2024-12-02 02:31:19,782 - INFO - Successfully completed batch 4287814 to 4307813
+2024-12-02 02:31:19,855 - INFO - Starting batch processing from index 4267814 to 4287813
+2024-12-02 02:56:53,149 - INFO - Successfully completed batch 4267814 to 4287813
+2024-12-02 02:56:53,221 - INFO - Starting batch processing from index 4247814 to 4267813
+2024-12-02 03:21:30,973 - INFO - Successfully completed batch 4247814 to 4267813
+2024-12-02 03:21:31,041 - INFO - Starting batch processing from index 4227814 to 4247813
+2024-12-02 03:43:54,138 - INFO - Successfully completed batch 4227814 to 4247813
+2024-12-02 03:43:54,205 - INFO - Starting batch processing from index 4207814 to 4227813
+2024-12-02 04:06:25,324 - INFO - Successfully completed batch 4207814 to 4227813
+2024-12-02 04:06:25,393 - INFO - Starting batch processing from index 4187814 to 4207813
+2024-12-02 04:29:40,302 - INFO - Successfully completed batch 4187814 to 4207813
+2024-12-02 04:29:40,370 - INFO - Starting batch processing from index 4167814 to 4187813
+2024-12-02 04:53:40,125 - INFO - Successfully completed batch 4167814 to 4187813
+2024-12-02 04:53:40,199 - INFO - Starting batch processing from index 4147814 to 4167813
+2024-12-02 05:15:35,840 - INFO - Successfully completed batch 4147814 to 4167813
+2024-12-02 05:15:35,903 - INFO - Starting batch processing from index 4127814 to 4147813
+2024-12-02 05:40:01,084 - INFO - Successfully completed batch 4127814 to 4147813
+2024-12-02 05:40:01,160 - INFO - Starting batch processing from index 4107814 to 4127813
+2024-12-02 06:04:34,671 - INFO - Successfully completed batch 4107814 to 4127813
+2024-12-02 06:04:34,757 - INFO - Starting batch processing from index 4087814 to 4107813
+2024-12-02 06:28:09,545 - INFO - Successfully completed batch 4087814 to 4107813
+2024-12-02 06:28:09,612 - INFO - Starting batch processing from index 4067814 to 4087813
+2024-12-02 06:51:08,653 - INFO - Successfully completed batch 4067814 to 4087813
+2024-12-02 06:51:08,729 - INFO - Starting batch processing from index 4047814 to 4067813
+2024-12-02 07:14:01,440 - INFO - Successfully completed batch 4047814 to 4067813
+2024-12-02 07:14:01,519 - INFO - Starting batch processing from index 4027814 to 4047813
+2024-12-02 07:37:38,247 - INFO - Successfully completed batch 4027814 to 4047813
+2024-12-02 07:37:38,314 - INFO - Starting batch processing from index 4007814 to 4027813
+2024-12-02 08:02:42,538 - INFO - Successfully completed batch 4007814 to 4027813
+2024-12-02 08:02:42,607 - INFO - Starting batch processing from index 3987814 to 4007813
+2024-12-02 08:25:40,024 - INFO - Successfully completed batch 3987814 to 4007813
+2024-12-02 08:25:40,094 - INFO - Starting batch processing from index 3967814 to 3987813
+2024-12-02 08:49:58,529 - INFO - Successfully completed batch 3967814 to 3987813
+2024-12-02 08:49:58,605 - INFO - Starting batch processing from index 3947814 to 3967813
+2024-12-02 09:14:53,809 - INFO - Successfully completed batch 3947814 to 3967813
+2024-12-02 09:14:53,878 - INFO - Starting batch processing from index 3927814 to 3947813
+2024-12-02 09:39:51,100 - INFO - Successfully completed batch 3927814 to 3947813
+2024-12-02 09:39:51,174 - INFO - Starting batch processing from index 3907814 to 3927813
+2024-12-02 10:05:40,080 - INFO - Successfully completed batch 3907814 to 3927813
+2024-12-02 10:05:40,160 - INFO - Starting batch processing from index 3887814 to 3907813
+2024-12-02 10:28:58,501 - INFO - Successfully completed batch 3887814 to 3907813
+2024-12-02 10:28:58,572 - INFO - Starting batch processing from index 3867814 to 3887813
+2024-12-02 10:52:18,196 - INFO - Successfully completed batch 3867814 to 3887813
+2024-12-02 10:52:18,274 - INFO - Starting batch processing from index 3847814 to 3867813
+2024-12-02 11:15:13,543 - INFO - Successfully completed batch 3847814 to 3867813
+2024-12-02 11:15:13,622 - INFO - Starting batch processing from index 3827814 to 3847813
+2024-12-02 11:39:25,086 - INFO - Successfully completed batch 3827814 to 3847813
+2024-12-02 11:39:25,164 - INFO - Starting batch processing from index 3807814 to 3827813
+2024-12-02 12:05:07,040 - INFO - Successfully completed batch 3807814 to 3827813
+2024-12-02 12:05:07,123 - INFO - Starting batch processing from index 3787814 to 3807813
+2024-12-02 12:29:36,746 - INFO - Successfully completed batch 3787814 to 3807813
+2024-12-02 12:29:36,815 - INFO - Starting batch processing from index 3767814 to 3787813
+2024-12-02 12:55:05,927 - INFO - Successfully completed batch 3767814 to 3787813
+2024-12-02 12:55:05,997 - INFO - Starting batch processing from index 3747814 to 3767813
+2024-12-02 13:20:34,751 - INFO - Successfully completed batch 3747814 to 3767813
+2024-12-02 13:20:34,822 - INFO - Starting batch processing from index 3727814 to 3747813
+2024-12-02 13:44:51,127 - INFO - Successfully completed batch 3727814 to 3747813
+2024-12-02 13:44:51,204 - INFO - Starting batch processing from index 3707814 to 3727813
+2024-12-02 14:09:42,026 - INFO - Successfully completed batch 3707814 to 3727813
+2024-12-02 14:09:42,096 - INFO - Starting batch processing from index 3687814 to 3707813
+2024-12-02 14:35:29,568 - INFO - Successfully completed batch 3687814 to 3707813
+2024-12-02 14:35:29,640 - INFO - Starting batch processing from index 3667814 to 3687813
+2024-12-02 15:01:00,007 - INFO - Successfully completed batch 3667814 to 3687813
+2024-12-02 15:01:00,098 - INFO - Starting batch processing from index 3647814 to 3667813
+2024-12-02 15:25:06,484 - INFO - Successfully completed batch 3647814 to 3667813
+2024-12-02 15:25:06,560 - INFO - Starting batch processing from index 3627814 to 3647813
+2024-12-02 15:47:55,817 - INFO - Successfully completed batch 3627814 to 3647813
+2024-12-02 15:47:55,889 - INFO - Starting batch processing from index 3607814 to 3627813
+2024-12-02 16:12:39,629 - INFO - Successfully completed batch 3607814 to 3627813
+2024-12-02 16:12:39,699 - INFO - Starting batch processing from index 3587814 to 3607813
+2024-12-02 16:36:35,904 - INFO - Successfully completed batch 3587814 to 3607813
+2024-12-02 16:36:35,973 - INFO - Starting batch processing from index 3567814 to 3587813
+2024-12-02 16:58:27,226 - INFO - Successfully completed batch 3567814 to 3587813
+2024-12-02 16:58:27,295 - INFO - Starting batch processing from index 3547814 to 3567813
+2024-12-02 17:20:24,524 - INFO - Successfully completed batch 3547814 to 3567813
+2024-12-02 17:20:24,597 - INFO - Starting batch processing from index 3527814 to 3547813
+2024-12-02 17:44:33,234 - INFO - Successfully completed batch 3527814 to 3547813
+2024-12-02 17:44:33,302 - INFO - Starting batch processing from index 3507814 to 3527813
+2024-12-02 18:06:34,232 - INFO - Successfully completed batch 3507814 to 3527813
+2024-12-02 18:06:34,302 - INFO - Starting batch processing from index 3487814 to 3507813
+2024-12-02 18:29:49,643 - INFO - Successfully completed batch 3487814 to 3507813
+2024-12-02 18:29:49,712 - INFO - Starting batch processing from index 3467814 to 3487813
+2024-12-02 18:57:47,905 - INFO - Successfully completed batch 3467814 to 3487813
+2024-12-02 18:57:47,978 - INFO - Starting batch processing from index 3447814 to 3467813
+2024-12-02 19:20:39,507 - INFO - Successfully completed batch 3447814 to 3467813
+2024-12-02 19:20:39,577 - INFO - Starting batch processing from index 3427814 to 3447813
+2024-12-02 19:42:22,066 - INFO - Successfully completed batch 3427814 to 3447813
+2024-12-02 19:42:22,134 - INFO - Starting batch processing from index 3407814 to 3427813
+2024-12-02 20:05:10,905 - INFO - Successfully completed batch 3407814 to 3427813
+2024-12-02 20:05:10,972 - INFO - Starting batch processing from index 3387814 to 3407813
+2024-12-02 20:30:11,380 - INFO - Successfully completed batch 3387814 to 3407813
+2024-12-02 20:30:11,449 - INFO - Starting batch processing from index 3367814 to 3387813
+2024-12-02 20:54:21,891 - INFO - Successfully completed batch 3367814 to 3387813
+2024-12-02 20:54:21,960 - INFO - Starting batch processing from index 3347814 to 3367813
+2024-12-02 21:18:46,838 - INFO - Successfully completed batch 3347814 to 3367813
+2024-12-02 21:18:46,907 - INFO - Starting batch processing from index 3327814 to 3347813
+2024-12-02 21:52:06,138 - INFO - Successfully completed batch 3327814 to 3347813
+2024-12-02 21:52:06,216 - INFO - Starting batch processing from index 3307814 to 3327813
+2024-12-02 22:18:41,304 - INFO - Successfully completed batch 3307814 to 3327813
+2024-12-02 22:18:41,392 - INFO - Starting batch processing from index 3287814 to 3307813
+2024-12-02 22:45:24,850 - INFO - Successfully completed batch 3287814 to 3307813
+2024-12-02 22:45:24,932 - INFO - Starting batch processing from index 3267814 to 3287813
+2024-12-02 23:11:27,674 - INFO - Successfully completed batch 3267814 to 3287813
+2024-12-02 23:11:27,755 - INFO - Starting batch processing from index 3247814 to 3267813
